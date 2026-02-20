@@ -259,7 +259,7 @@ body::before {
 .hero {
   position: relative;
   padding: 72px 0 64px;
-  min-height: 92vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
 
@@ -690,18 +690,6 @@ textarea:focus {
   transform: translateY(-3px);
   box-shadow: 0 18px 40px rgba(139, 115, 85, 0.45);
   filter: brightness(1.05);
-}
-
-/* ================= Scroll reveal ================= */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity .55s ease, transform .55s ease;
-}
-
-[data-reveal].is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* ================= Responsive ================= */
@@ -1149,15 +1137,15 @@ textarea:focus {
 }
 
 /* Arka planı ayrı bir katman gibi hissedilir yap */
-.hero--parallax::after {
-  content: "";
-  position: absolute;
-  inset: 0;
+.hero--parallax::after{
+  content:"";
+  position:absolute;
+  inset:0;
   background-image: inherit;
   background-size: cover;
   background-position: center;
-  transform: scale(1.05);
-  z-index: -1;
+  transform: var(--hero-parallax, translateY(0px) scale(1.05));
+  z-index:-1;
   transition: transform .2s ease-out;
 }
 
@@ -1166,4 +1154,107 @@ textarea:focus {
   .hero--parallax {
     background-attachment: scroll;
   }
+}
+
+/* Hero blur'un altta kesilmesini yumuşatır */
+.hero{
+  position: relative;
+  overflow: hidden; /* overlay taşarsa kırp */
+}
+
+/* ================= HERO: Quick Offer (büyütme) ================= */
+.hero__grid{
+  align-items: center;
+}
+
+.hero__card{
+  max-width: 440px;           /* biraz geniş */
+  padding: 22px;              /* iç boşluk artar */
+  border-radius: 22px;
+  box-shadow: var(--shadow2);
+}
+
+.hero__cardTop h3{
+  font-size: 18px;
+  margin: 0 0 6px;
+}
+
+.hero__cardTop p{
+  margin: 0;
+  font-size: 13.5px;
+}
+
+/* input + button biraz daha “premium” görünsün */
+.miniForm input{
+  padding: 12px 12px;
+  border-radius: 14px;
+}
+
+.miniForm .btn{
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-size: 14px;
+}
+
+/* ================= HERO CTA buttons büyütme ================= */
+.hero__cta .btn{
+  padding: 13px 18px;
+  border-radius: 16px;
+  font-size: 14.5px;
+}
+
+/* ================= SaaS Load Animasyon (Hero) ================= */
+body:not(.is-loaded) .hero__content,
+body:not(.is-loaded) .hero__card{
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+body.is-loaded .hero__content{
+  animation: saasUp .65s ease forwards;
+}
+
+body.is-loaded .hero__card{
+  animation: saasUp .70s ease forwards;
+  animation-delay: .10s;
+}
+
+body.is-loaded .hero__cta .btn:nth-child(1){
+  animation: saasUp .65s ease forwards;
+  animation-delay: .16s;
+  opacity: 0;
+}
+
+body.is-loaded .hero__cta .btn:nth-child(2){
+  animation: saasUp .65s ease forwards;
+  animation-delay: .22s;
+  opacity: 0;
+}
+
+@keyframes saasUp{
+  from{ opacity:0; transform: translateY(14px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+/* ================= Hero ince ayar (yazılar sabit, konum ayarı) ================= */
+
+/* Yazı bloğunu biraz sol-yukarı al */
+.hero__content{
+  margin-top: -100px;   /* yukarı: -12 / -18 / -24 deneyebilirsin */
+  margin-left: -60px;  /* sola: -6 / -10 / -14 deneyebilirsin */
+}
+
+/* Hızlı Teklif kartını azıcık büyüt */
+.hero__card{
+  max-width: 560px;    /* önceki 420-440 ise biraz büyür */
+  padding: 30px;       /* iç boşluk azıcık artar */
+}
+
+/* Form elemanlarını çok abartmadan büyüt */
+.miniForm input{
+  padding: 12px 12px;  /* 1 tık daha rahat */
+}
+
+.miniForm .btn{
+  padding: 12px 14px;  /* buton biraz daha iri */
 }
