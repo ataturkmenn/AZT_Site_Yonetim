@@ -125,7 +125,7 @@ window.addEventListener("scroll", () => {
           `translateY(${translateY}px) scale(${scale})`
         );
 
-        hero.style.transform = `translateY(${translateY}px)`;
+       
         ticking = false;
       });
       ticking = true;
@@ -134,3 +134,8 @@ window.addEventListener("scroll", () => {
 
   window.addEventListener("scroll", onScroll, { passive: true });
 })();
+
+// İlk açılış animasyonu (SaaS hissi)
+window.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("is-loaded");
+});
