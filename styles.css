@@ -1,35 +1,30 @@
 :root {
   /* Zemin */
-  --bg: #f4f6f8;
-  --bg2: #e9ecef;
+  --bg: #f8fafc;
+  --bg2: #f1f5f9;
 
   /* Yüzey */
   --card: #ffffff;
 
   /* Metin */
-  --text: #1f2933;
-  --muted: #6b7280;
+  --text: #0f172a; /* Çok koyu lacivert, siyah yerine daha modern */
+  --muted: #64748b;
 
   /* Çizgi */
-  --line: #e5e7eb;
+  --line: #e2e8f0;
 
-  /* Ana renk (CTA / vurgu) */
-  --primary: #585c6b;
-  /* warm taupe */
-  --primary2: #585c6b;
-  /* koyu taupe */
+  /* Ana renk (Kurumsal Mavi ve Lacivert Vurgusu) */
+  --primary: #1e40af; /* Güçlü Mavi */
+  --primary2: #3b82f6; /* Daha açık, gradient için mavi */
 
   /* İkincil vurgu */
-  --accent: #2f3a45;
-  /* slate */
+  --accent: #0f172a; 
 
-  /* Soft */
-  --soft: rgba(122, 100, 80, 0.14);
+  --radius: 16px; /* 20px biraz fazla yuvarlak, 16px daha ciddi durur */
 
-  --radius: 20px;
-
-  --shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
-  --shadow2: 0 28px 70px rgba(0, 0, 0, 0.14);
+  /* Daha modern, yumuşak gölgeler */
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  --shadow2: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
 }
 
 
@@ -44,7 +39,7 @@ html {
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   color: var(--text);
   background:
     radial-gradient(900px 520px at 10% 0%, rgba(139, 115, 85, 0.10), transparent 55%),
@@ -214,8 +209,9 @@ body::before {
 
 .btn--primary:hover {
   transform: translateY(-2px);
-  filter: brightness(1.03);
-  box-shadow: 0 16px 36px rgba(139, 115, 85, 0.38);
+  /* Gradient yönünü veya rengini hafif değiştirerek daha akıcı bir hissiyat verelim */
+  background: linear-gradient(135deg, var(--primary2), var(--primary)); 
+  box-shadow: 0 12px 20px -5px rgba(30, 64, 175, 0.4); /* Rengi yeni temaya uydurduk */
   color: #ffffff;
 }
 
@@ -255,33 +251,32 @@ body::before {
   border-radius: 2px;
 }
 
-/* ================= Hero (Background Image) ================= */
+/* ================= Hero (Dark Premium) ================= */
 .hero {
-  position: relative;
-  padding: 72px 0 64px;
-  min-height: 100vh;
+  position: sticky;
+  top: 0; /* EKSİK OLAN BUYDU: Kaydırınca ekranın en üstüne (0 noktasına) yapışmasını sağlar */
+  z-index: 0; /* Alt katmanda kalmasını sağlar */
+  padding: 120px 0 100px; 
+  height: 100vh; /* min-height yerine tam ekran yüksekliği veriyoruz ki arkada sabit dursun */
   display: flex;
   align-items: center;
-
   background-image: url("assets/hero-bg.jpg");
-  /* burada dosya adın neyse o */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Fotoğrafın rengini koru: solda okuma katmanı, sağda şeffaf */
+/* Koyu Lacivert/Siyah Geçişli Arka Plan Filtresi */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 0;
-  background:
-    linear-gradient(90deg,
-      rgba(245, 245, 244, 0.84) 0%,
-      rgba(245, 245, 244, 0.58) 38%,
-      rgba(245, 245, 244, 0.20) 62%,
-      rgba(245, 245, 244, 0.00) 78%);
+  /* Solda koyu ve okunabilir, sağa doğru hafif açılan asil bir karanlık */
+  background: linear-gradient(90deg, 
+      rgba(15, 23, 42, 0.92) 0%, 
+      rgba(15, 23, 42, 0.80) 45%, 
+      rgba(15, 23, 42, 0.40) 100%);
 }
 
 .hero .container {
@@ -289,50 +284,77 @@ body::before {
   z-index: 1;
 }
 
-/* HERO GRID: sol metin + sağ form (hizalama düzel) */
+/* Sol Taraf Metinleri (Beyaza çeviriyoruz) */
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(520px, 1.1fr) minmax(380px, 0.9fr);
-  gap: 24px;
-  align-items: flex-start;
-  /* kritik */
+  grid-template-columns: 1fr 420px;
+  gap: 50px;
+  align-items: center;
 }
 
 .hero__content {
-  max-width: 680px;
-  padding-top: 12px;
-  /* başlık hizası için */
+  max-width: 600px;
 }
 
+.hero__content h1 {
+  color: #ffffff; /* Başlık bembeyaz */
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero__content .lead {
+  color: #cbd5e1; /* Açık gri-mavi, göz yormaz */
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.hero__content .badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  color: #60a5fa; /* Parlak açık mavi vurgu */
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+}
+
+/* Sol Taraf İkincil Buton (Şeffaf/Beyaz) */
+.hero__cta .btn--ghost {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.hero__cta .btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+/* Sağ Taraf Form Kartı (Koyu arka planda parlayacak) */
 .hero__card {
-  justify-self: end;
-  width: 100%;
-  max-width: 460px;
-  margin-top: 18px;
-}
-
-/* ================= Cards / Panels ================= */
-.hero__card {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-
-.hero__cardTop {
-  padding: 16px 16px 0;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4); /* Koyu zemine uygun derin gölge */
+  position: relative;
 }
 
 .hero__cardTop h3 {
-  margin: 0 0 6px;
+  color: #0f172a;
+  font-size: 24px;
+  margin-bottom: 8px;
 }
 
 .hero__cardTop p {
-  margin: 0;
-  color: var(--muted);
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 24px;
 }
-
 /* ================= Forms ================= */
 .miniForm {
   padding: 14px 16px 16px;
@@ -374,16 +396,21 @@ textarea:focus {
 /* ================= Sections ================= */
 .section {
   padding: 52px 0;
-  background: transparent;
+  background: #fafafa; 
+  position: relative;
+  z-index: 10;
 }
 
 /* Ambient section: gri + taş */
 .section--ambient {
   position: relative;
-  background:
+  z-index: 10; /* DÜZELTİLDİ: Hero'nun üstüne çıkması garanti edildi */
+  /* DÜZELTİLDİ: Arka plandaki resim görünmesin diye şeffaflık iptal edilip katı zemin eklendi */
+  background-color: #f1f5f9; 
+  background-image: 
     radial-gradient(1400px 780px at 18% 10%, rgba(139, 115, 85, 0.10), transparent 62%),
     radial-gradient(1400px 780px at 82% 18%, rgba(68, 64, 60, 0.08), transparent 64%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.46));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.90));
   backdrop-filter: blur(6px);
 }
 
@@ -649,6 +676,8 @@ textarea:focus {
   padding: 18px 0;
   background: #1f1f1f;
   color: #f5f5f4;
+  position: relative;
+  z-index: 10;
 }
 
 .footer__inner {
@@ -684,6 +713,7 @@ textarea:focus {
   font-weight: 900;
   box-shadow: 0 14px 34px rgba(139, 115, 85, 0.22);
   transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  z-index: 9999;
 }
 
 .floating:hover {
@@ -1238,12 +1268,6 @@ body.is-loaded .hero__cta .btn:nth-child(2){
 
 /* ================= Hero ince ayar (yazılar sabit, konum ayarı) ================= */
 
-/* Yazı bloğunu biraz sol-yukarı al */
-.hero__content{
-  margin-top: -100px;   /* yukarı: -12 / -18 / -24 deneyebilirsin */
-  margin-left: -60px;  /* sola: -6 / -10 / -14 deneyebilirsin */
-}
-
 /* Hızlı Teklif kartını azıcık büyüt */
 .hero__card{
   max-width: 560px;    /* önceki 420-440 ise biraz büyür */
@@ -1257,4 +1281,436 @@ body.is-loaded .hero__cta .btn:nth-child(2){
 
 .miniForm .btn{
   padding: 12px 14px;  /* buton biraz daha iri */
+}
+
+/* ================= RESPONSIVE (MOBİL) AYARLARI ================= */
+@media (max-width: 980px) {
+  .hero__grid {
+    grid-template-columns: 1fr; /* Yan yana değil, alt alta dizil */
+    gap: 40px;
+  }
+  
+  .hero {
+    /* Telefondaki menü payını hesaba katalım */
+    padding-top: 100px; 
+    padding-bottom: 60px;
+    height: auto; /* Sabit yükseklik yerine içeriğe göre uzasın */
+    min-height: auto;
+  }
+
+  .hero__content {
+    text-align: center; /* Mobilde yazılar ortalı daha şık durur */
+    margin: 0 auto;
+  }
+  
+  .hero__card {
+    width: 100%; /* Kart mobilde tam genişlik olsun */
+    max-width: 100%;
+  }
+}
+
+/* ================= SAAS SERVICES TASARIMI ================= */
+.saas-head {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.saas-badge {
+  display: inline-block;
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  border: 1px solid #dbeafe;
+}
+
+.saas-grid {
+  display: grid;
+  /* Ekran genişliğine göre otomatik sığdır (mobilde 1, tablette 2, PC'de 3-4 sütun) */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Premium Kart Yapısı */
+.saas-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Hover (Üzerine Gelme) Animasyonu */
+.saas-card:hover {
+  transform: translateY(-8px);
+  border-color: #cbd5e1;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+}
+
+/* Görsel Alanı */
+.saas-card__media {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.saas-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* Resim üzerine çok hafif karartma */
+.saas-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.2), transparent);
+}
+
+.saas-card:hover .saas-card__media img {
+  transform: scale(1.08); /* Resim hafifçe yaklaşır */
+}
+
+/* Kart İçeriği */
+.saas-card__body {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.saas-card__icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+  background: #f8fafc;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+}
+
+.saas-card__body h3 {
+  font-size: 19px;
+  color: #0f172a;
+  margin: 0 0 10px;
+}
+
+.saas-card__body p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 24px;
+  flex-grow: 1;
+}
+
+/* Sahte Link ve Ok Animasyonu */
+.saas-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2563eb;
+  transition: color 0.3s ease;
+}
+
+.saas-card__link svg {
+  transition: transform 0.3s ease;
+}
+
+.saas-card:hover .saas-card__link {
+  color: #1e40af;
+}
+
+.saas-card:hover .saas-card__link svg {
+  transform: translateX(6px); /* Ok sağa doğru kayar */
+}
+
+/* ================= SAAS MODAL (AÇILIR PENCERE) TASARIMI ================= */
+button.saas-card__link {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: auto; /* Butonu hep en alta iter */
+}
+
+.saas-modal {
+  border: none;
+  border-radius: 24px;
+  padding: 0;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
+  background: #ffffff;
+}
+
+/* Modal arkasındaki koyu buzlu cam efekti */
+.saas-modal::backdrop {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.saas-modal__content {
+  position: relative;
+  padding: 40px;
+}
+
+/* Kapatma Butonu (X) */
+.saas-modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f1f5f9;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #64748b;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s;
+}
+
+.saas-modal__close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: rotate(90deg); /* Üzerine gelince tatlı bir dönme efekti */
+}
+
+.saas-modal__content h3 {
+  color: #0f172a;
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 12px;
+}
+
+.saas-modal__content h4 {
+  color: #1e40af;
+  font-size: 16px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.saas-modal__content p {
+  color: #475569;
+  line-height: 1.7;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* Kart içindeki paragrafın esnemesini sağla (Linkleri en alta itmek için) */
+.minimal-card p {
+  flex-grow: 1; /* Bu özellik paragrafı esnetir ve alttaki linki en dibe iter */
+  margin-bottom: 24px; /* Link ile paragraf arasına boşluk açar */
+}
+
+/* Minimalist Detay Linki Tasarımı */
+.minimal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #0f172a; /* Kurumsal lacivert/siyah */
+  margin-top: auto; /* Kutu ne kadar uzun olursa olsun linki en alta yapıştırır */
+  transition: color 0.3s ease;
+}
+
+.minimal-link svg {
+  transition: transform 0.3s ease;
+}
+
+/* Kartın Üzerine Gelindiğinde (Hover) Linkin Rengi ve Ok Hareketi */
+.minimal-card:hover .minimal-link {
+  color: #2563eb; /* Üzerine gelince tatlı bir kurumsal maviye döner */
+}
+
+.minimal-card:hover .minimal-link svg {
+  transform: translateX(6px); /* Ok işareti sağa doğru şıkça kayar */
+}
+
+/* ==========================================================================
+   MINIMALIST ASYMMETRICAL SERVICES (BUNU EN ALTA YAPIŞTIR)
+   ========================================================================== */
+
+.services-split {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Sol Taraf Sabit Başlık */
+.services-left {
+  position: sticky;
+  top: 120px; 
+}
+
+.minimal-title {
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #0f172a;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+}
+
+.minimal-desc {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Sağ Taraf Izgara (2 Sütun) */
+.services-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* Minimalist Kart Tasarımı (Referans görseldeki gibi) */
+.minimal-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 40px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.minimal-card:hover {
+  border-color: #94a3b8;
+  box-shadow: 0 20px 40px -15px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+}
+
+/* Koyu Renk Keskin İkon Kutusu */
+.icon-box {
+  background: #0f172a; /* Çok koyu lacivert/siyah */
+  color: #ffffff;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 24px;
+  border-radius: 4px; /* Çok hafif yumuşak köşeli kare */
+  transition: transform 0.3s ease;
+}
+
+.minimal-card:hover .icon-box {
+  transform: scale(1.1);
+}
+
+.minimal-card h3 {
+  font-size: 18px;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+.minimal-card p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  flex-grow: 1;
+}
+
+/* Detay Linki (Alt kısıma yaslı) */
+.minimal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #0f172a;
+  margin-top: auto;
+  transition: color 0.3s ease;
+}
+
+.minimal-link svg {
+  transition: transform 0.3s ease;
+}
+
+.minimal-card:hover .minimal-link {
+  color: #2563eb;
+}
+
+.minimal-card:hover .minimal-link svg {
+  transform: translateX(6px);
+}
+
+/* ================= MOBİL UYUM (Küçük Ekranlar İçin) ================= */
+@media (max-width: 980px) {
+  .services-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .services-left {
+    position: static;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-right {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= KESİN ÇÖZÜM: PERDE GİBİ KAYMA EFEKTİ ================= */
+
+/* 1. Altta gizli kalan çakışmaları ezer ve ana ekranı arkaya mühürler */
+.hero {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 0 !important;
+  height: 100vh !important;
+}
+
+/* 2. Alttan gelen sayfaların şeffaflığını iptal edip resmin üstüne çıkmasını sağlar */
+.section {
+  background-color: #fafafa !important; 
+  position: relative !important;
+  z-index: 10 !important; 
+}
+
+.section--ambient {
+  background-color: #f1f5f9 !important; 
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* 3. Footer'ın da resmin arkasına kaçmasını engeller */
+.footer {
+  position: relative !important;
+  z-index: 10 !important;
 }
