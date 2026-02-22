@@ -82,7 +82,7 @@
             <input type="text" placeholder="Örn: Merkezefendi/ Servergazi Mah. / X Sitesi" required />
           </label>
           <button class="btn btn--primary btn--block" type="submit">Gönder</button>
-          <p class="miniForm__note">Gönder butonu demo. İstersen e-posta/WhatsApp entegrasyonu ekleriz.</p>
+          <p class="miniForm__note">Gönder butonu demo.</p>
         </form>
       </div>
     </div>
@@ -92,201 +92,90 @@
 
   <!-- Services (plain) -->
   <!-- Services (FULL WIDTH Accordion) -->
- <section class="section" id="services" style="background-color: #fafafa;">
+ <section class="section" id="services">
     <div class="container services-split">
       
       <div class="services-left" data-reveal>
         <h2 class="minimal-title">HİZMETLERİMİZ</h2>
-        <p class="minimal-desc">
-          Operasyonel süreçlerinizi hafifletmek ve yaşam alanlarınıza değer katmak için tasarlanmış kapsamlı site yönetimi çözümleri.
-        </p>
+        <p class="minimal-desc">Operasyonel süreçlerinizi hafifletmek ve yaşam alanlarınıza değer katmak için tasarlanmış kapsamlı site yönetimi çözümleri.</p>
       </div>
 
       <div class="services-right">
         
-        <div class="minimal-card" onclick="document.getElementById('modal-temizlik').showModal()" data-reveal data-delay="0">
-          <div class="icon-box">✨</div>
-          <h3>Temizlik Hizmetleri</h3>
-          <p>Ortak alan temizliği, asansör hijyeni ve günlük çöp toplama düzenli şekilde yürütülür.</p>
-          <div class="minimal-link">
-            Detayları Gör
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-temizlik.png');" onclick="document.getElementById('modal-bahce').showModal()" data-reveal data-delay="0">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h3>Temizlik Hizmetleri</h3>
+            <p>Ortak alan temizliği, asansör hijyeni ve günlük çöp toplama düzenli şekilde yürütülür.</p>
+            <button class="minimal-link link-white" onclick="document.getElementById('modal-temizlik').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
           </div>
         </div>
 
-        <div class="minimal-card" onclick="document.getElementById('modal-elektrik').showModal()" data-reveal data-delay="100">
-          <div class="icon-box">⚡</div>
-          <h3>Elektrik Hizmetleri</h3>
-          <p>Daire içi arızalar, sigorta atması ve aydınlatma/kamera/zil işleri hızlı çözülür.</p>
-          <div class="minimal-link">
-            Detayları Gör
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-elektrik.png');" onclick="document.getElementById('modal-bahce').showModal()" >
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h3>Elektrik Hizmetleri</h3>
+            <p>Daire içi arızalar, sigorta atması ve aydınlatma/kamera/zil işleri hızlı çözülür.</p>
+            <button class="minimal-link link-white" onclick="document.getElementById('modal-elektrik').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
           </div>
         </div>
 
-        <div class="minimal-card" onclick="document.getElementById('modal-tesisat').showModal()" data-reveal data-delay="200">
-          <div class="icon-box">💧</div>
-          <h3>Tesisat Hizmetleri</h3>
-          <p>Su arızaları, tıkanıklık, batarya–musluk ve vana değişimleri planlı şekilde yapılır.</p>
-          <div class="minimal-link">
-            Detayları Gör
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-tesisat.png');" onclick="document.getElementById('modal-bahce').showModal()">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h3>Tesisat Hizmetleri</h3>
+            <p>Su arızaları, tıkanıklık, batarya-musluk ve vana değişimleri planlı şekilde yapılır.</p>
+            <button class="minimal-link link-white" onclick="document.getElementById('modal-tesisat').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
           </div>
         </div>
 
-        <div class="minimal-card" onclick="document.getElementById('modal-boya').showModal()" data-reveal data-delay="300">
-          <div class="icon-box">🎨</div>
-          <h3>Boya Hizmetleri</h3>
-          <p>Alçı-sıva, duvar/tavan boyama ve çatlak onarım işleri temiz işçilikle yapılır.</p>
-          <div class="minimal-link">
-            Detayları Gör
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-boya.png');" onclick="document.getElementById('modal-bahce').showModal()">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h3>Boya Hizmetleri</h3>
+            <p>Alçı-sıva, duvar/tavan boyama ve çatlak onarım işleri temiz işçilikle yapılır.</p>
+            <button class="minimal-link link-white" onclick="document.getElementById('modal-boya').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
           </div>
         </div>
 
-        <div class="minimal-card" onclick="document.getElementById('modal-asansor').showModal()" data-reveal data-delay="0">
-          <div class="icon-box">⚙️</div>
-          <h3>Asansör Hizmetleri</h3>
-          <p>Aylık/yıllık bakım, bandrol süreçleri ve arıza müdahaleleri takip edilir.</p>
-          <div class="minimal-link">
-            Detayları Gör
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-asansor.png');" onclick="document.getElementById('modal-bahce').showModal()">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h3>Asansör Hizmetleri</h3>
+            <p>Aylık/yıllık bakım, bandrol süreçleri ve arıza müdahaleleri takip edilir.</p>
+            <button class="minimal-link link-white" onclick="document.getElementById('modal-asansor').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
           </div>
         </div>
 
-        <div class="minimal-card" onclick="document.getElementById('modal-cilingir').showModal()" data-reveal data-delay="100">
-          <div class="icon-box">🔑</div>
-          <h3>Çilingir Hizmetleri</h3>
-          <p>Kapı açma ve kilit değişimi işlemleri güvenlik esas alınarak hasarsız yapılır.</p>
-          <div class="minimal-link">
-            Detayları Gör
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-cilingir.png');" onclick="document.getElementById('modal-bahce').showModal()">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h3>Çilingir Hizmetleri</h3>
+            <p>Kapı açma ve kilit değişimi işlemleri güvenlik esas alınarak hasarsız yapılır.</p>
+            <button class="minimal-link link-white" onclick="document.getElementById('modal-cilingir').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
           </div>
         </div>
 
-        <div class="minimal-card" onclick="document.getElementById('modal-kombi').showModal()" data-reveal data-delay="200">
-          <div class="icon-box">🔥</div>
-          <h3>Kombi & Petek</h3>
-          <p>Isınma verimi ve güvenliği için bakım, temizlik ve sistem kontrolü yapılır.</p>
-          <div class="minimal-link">
-            Detayları Gör
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-kombi.png');" onclick="document.getElementById('modal-bahce').showModal()">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h3>Kombi & Petek</h3>
+            <p>Isınma verimi ve güvenliği için bakım, temizlik ve sistem kontrolü yapılır.</p>
+            <button class="minimal-link link-white" onclick="document.getElementById('modal-kombi').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
           </div>
         </div>
 
-        <div class="minimal-card" onclick="document.getElementById('modal-peyzaj').showModal()" data-reveal data-delay="300">
-          <div class="icon-box">🌿</div>
-          <h3>Bahçe ve Peyzaj</h3>
-          <p>Çim biçme, budama, bitki bakımı ve peyzaj düzenleme çalışmaları planlı yürütülür.</p>
-          <div class="minimal-link">
-            Detayları Gör
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-bahce.png');" onclick="document.getElementById('modal-bahce').showModal()">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h3>Bahçe ve Peyzaj</h3>
+            <p>Çim biçme, budama, bitki bakımı ve peyzaj düzenleme çalışmaları planlı yürütülür.</p>
+            <button class="minimal-link link-white" onclick="document.getElementById('modal-bahce').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
           </div>
         </div>
 
       </div>
     </div>
-
-    <dialog id="modal-temizlik" class="saas-modal">
-      <div class="saas-modal__content">
-        <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
-        <h3>Temizlik Hizmetleri</h3>
-        <p>Site ve bina yaşam alanlarının hijyenik, düzenli ve sağlıklı kalması için temizlik hizmetlerini planlı ve denetimli şekilde yürütüyoruz. Ortak alanlarda günlük rutinden periyodik detay temizliğe kadar tüm süreçler, belirlenen standartlara uygun olarak gerçekleştirilir.</p>
-        <h4>Bina ve Site Ortak Alan Temizliği</h4>
-        <p>Girişler, merdivenler, kat holleri, koridorlar ve sosyal alanlar düzenli olarak temizlenir; site genelinde temiz ve bakımlı bir görünüm sağlanır.</p>
-        <h4>Asansör Temizliği</h4>
-        <p>Asansör kabinleri, kapılar ve kontrol panelleri hijyen kurallarına uygun şekilde temizlenerek hem estetik hem de sağlık açısından güvenli kullanım sunulur.</p>
-        <h4>Günlük Çöp Toplama ve Atık Yönetimi</h4>
-        <p>Ortak alanlardaki çöpler günlük olarak toplanır, çöp alanlarının temizliği ve düzeni sağlanarak koku ve görüntü kirliliği önlenir.</p>
-      </div>
-    </dialog>
-
-    <dialog id="modal-elektrik" class="saas-modal">
-      <div class="saas-modal__content">
-        <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
-        <h3>Elektrik Hizmetleri</h3>
-        <p>Site ve dairelerde elektrik sistemlerinin güvenli ve sorunsuz çalışması için planlı ve hızlı hizmet sunuyoruz. Günlük arızalardan montaj ve bağlantı işlemlerine kadar tüm çalışmalar, teknik kurallara uygun olarak gerçekleştirilir.</p>
-        <h4>Daire İçi Elektrik Arızaları</h4>
-        <p>Elektrik tesisatında oluşan arızalar, sigorta atması ve ani elektrik kesintileri hızlı şekilde tespit edilerek giderilir.</p>
-        <h4>Aydınlatma ve Kamera Sistemleri</h4>
-        <p>Ortak alan aydınlatma onarımları, kamera sistemleri, kapı zilleri ve zil tesisatlarında oluşan arızalar kontrol edilir ve gerekli onarımlar yapılır.</p>
-      </div>
-    </dialog>
-
-    <dialog id="modal-tesisat" class="saas-modal">
-      <div class="saas-modal__content">
-        <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
-        <h3>Tesisat Hizmetleri</h3>
-        <p>Site ve dairelerde su tesisatının sorunsuz ve güvenli şekilde çalışması için tesisat işlemlerini planlı ve hızlı şekilde gerçekleştiriyoruz.</p>
-        <h4>Su Tesisat Arızaları</h4>
-        <p>Daire içi ve ortak alanlarda oluşan su tesisatı arızaları tespit edilerek kısa sürede giderilir.</p>
-        <h4>Musluk, Batarya ve Vana Değişimi</h4>
-        <p>Arızalı veya eski musluk, batarya ve vanalar, güvenli kullanım sağlayacak ve su sızıntısını önleyecek şekilde yenileriyle değiştirilir.</p>
-        <h4>Lavabo Açma (Tıkanıklık Giderme)</h4>
-        <p>Lavabo ve giderlerde oluşan tıkanıklıklar profesyonel ekipmanlarla açılarak sağlıklı kullanım yeniden sağlanır.</p>
-      </div>
-    </dialog>
-
-    <dialog id="modal-boya" class="saas-modal">
-      <div class="saas-modal__content">
-        <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
-        <h3>Boya Hizmetleri</h3>
-        <p>Site ve daire yaşam alanlarının estetik ve bakımlı görünmesi için boya ve yüzey düzenleme hizmetlerini planlı şekilde sunuyoruz. Tüm uygulamalar temiz işçilik ve uygun malzeme kullanımı esas alınarak gerçekleştirilir.</p>
-        <h4>Duvar ve Tavan Boyama</h4>
-        <p>Daire içi ve ortak alan boyama işlemleri, mekâna uygun renk seçimiyle düzgün ve temiz bir görünüm sağlayacak şekilde yapılır.</p>
-        <h4>Alçı, Sıva ve Çatlak Onarımı</h4>
-        <p>Duvar ve tavan yüzeylerinde oluşan bozukluklar ve çatlaklar onarılarak yüzey bütünlüğü sağlanır, ardından boyama işlemi uygulanır.</p>
-      </div>
-    </dialog>
-
-    <dialog id="modal-asansor" class="saas-modal">
-      <div class="saas-modal__content">
-        <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
-        <h3>Asansör Bakım ve Onarım</h3>
-        <p>Site ve bina asansörlerinin güvenli ve kesintisiz çalışması için bakım ve onarım hizmetlerini planlı şekilde yürütüyoruz. Tüm işlemler ilgili mevzuat ve güvenlik standartlarına uygun olarak gerçekleştirilir.</p>
-        <h4>Periyodik Bakım ve Bandrol</h4>
-        <p>Asansörlerin düzenli ve güvenli çalışması için aylık periyodik bakım kontrolleri yapılır. Yıllık periyodik kontroller gerçekleştirilerek yasal bandrol (etiket) süreçleri takip edilir.</p>
-        <h4>Arıza Müdahalesi</h4>
-        <p>Asansörlerde oluşan arızalar hızlı şekilde tespit edilir ve kullanıcı güvenliği öncelik alınarak sorunlar giderilir.</p>
-      </div>
-    </dialog>
-
-    <dialog id="modal-cilingir" class="saas-modal">
-      <div class="saas-modal__content">
-        <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
-        <h3>Çilingir Hizmetleri</h3>
-        <p>Site ve dairelerde yaşanan kilit ve kapı sorunlarına hızlı ve güvenli çözümler sunuyoruz. Tüm çilingir işlemleri, kapıya ve kilit sistemine zarar vermeden, güvenlik esas alınarak gerçekleştirilir.</p>
-        <h4>Kapı Açma</h4>
-        <p>Anahtar kaybı veya kilit arızası durumlarında kapılar kontrollü ve hasarsız şekilde açılır.</p>
-        <h4>Kilit Değişimi</h4>
-        <p>Arızalı, eski veya güvenlik ihtiyacı olan kilitler, site ve daire güvenliğini en üst düzeye çıkaracak uygun kilit sistemleriyle değiştirilir.</p>
-      </div>
-    </dialog>
-
-    <dialog id="modal-kombi" class="saas-modal">
-      <div class="saas-modal__content">
-        <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
-        <h3>Kombi ve Petek Hizmetleri</h3>
-        <p>Dairelerde ısınma sistemlerinin verimli ve güvenli çalışması için kombi ve petek hizmetlerini düzenli ve kontrollü şekilde sunuyoruz. İşlemler enerji verimliliğini artırmayı hedefler.</p>
-        <h4>Kombi Bakım ve Onarımı</h4>
-        <p>Kombi sistemleri kontrol edilerek gerekli bakım işlemleri yapılır, oluşan arızalar güvenli kullanım sağlanacak şekilde giderilir.</p>
-        <h4>Petek Temizliği ve Sistem Kontrolü</h4>
-        <p>Peteklerde zamanla oluşan tortu ve kirler temizlenerek ısınma performansı artırılır. Kombi ve petek bağlantıları kontrol edilerek eşit ısı dağılımı sağlanır.</p>
-      </div>
-    </dialog>
-
-    <dialog id="modal-peyzaj" class="saas-modal">
-      <div class="saas-modal__content">
-        <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
-        <h3>Bahçe ve Peyzaj Hizmetleri</h3>
-        <p>Site ve bina çevresindeki yeşil alanların düzenli, bakımlı ve estetik görünmesi için bahçe ve peyzaj hizmetlerini planlı şekilde yürütüyoruz. Mevsimsel ihtiyaçlara göre bakım çalışmaları düzenli olarak gerçekleştirilir.</p>
-        <h4>Çim Biçme ve Bitki Bakımı</h4>
-        <p>Çim alanlar düzenli olarak biçilir. Ağaç, çalı ve bitkilerin budama işlemleri yapılarak sağlıklı gelişimleri desteklenir.</p>
-        <h4>Peyzaj Düzenleme</h4>
-        <p>Bahçe ve ortak alanlarda peyzaj düzenlemeleri yapılarak estetik, ferah ve kullanışlı alanlar oluşturulur.</p>
-      </div>
-    </dialog>
-
   </section>
 
 
@@ -447,7 +336,7 @@
             <h3>Hızlı İletişim</h3>
             <p><strong>Telefon:</strong> 0 (5xx) xxx xx xx</p>
             <p><strong>E-posta:</strong> info@ornek.com</p>
-            <p><strong>Adres:</strong> Bandırma / Balıkesir</p>
+            <p><strong>Adres:</strong> Merkezefendi / Denizli</p>
             <div class="infoActions">
               <a class="btn btn--primary" href="tel:+90XXXXXXXXXX">Ara</a>
               <a class="btn btn--ghost" href="https://wa.me/90XXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
@@ -477,7 +366,7 @@
             <textarea rows="5" placeholder="Site bilgisi, blok/daire sayısı, beklentiniz..."></textarea>
           </label>
           <button class="btn btn--primary btn--block" type="submit">Mesaj Gönder</button>
-          <p class="miniForm__note">Form şu an demo. İstersen Mail/WhatsApp’a gönderme eklerim.</p>
+          <p class="miniForm__note">Form şu an demo</p>
         </form>
       </div>
     </div>
@@ -486,7 +375,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container footer__inner">
-      <div>© <span id="year"></span> AZT Profesyonel Site Yönetimi</div>
+      <div>© <span id="year"></span> AZT Yeni Nesil Site Yönetimi</div>
       <div class="footer__links">
         <a href="#services">Hizmetler</a>
         <a href="#faq">SSS</a>
@@ -499,6 +388,151 @@
   <a class="floating" href="#contact" aria-label="Teklif al">Teklif Al</a>
 
   <script src="./script.js"></script>
+
+  <dialog class="saas-modal" id="modal-temizlik">
+    <div class="saas-modal__content">
+      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+      <h3>Temizlik Hizmetleri</h3>
+      <p>Site ve bina yaşam alanlarının hijyenik, düzenli ve sağlıklı kalması için temizlik hizmetlerini planlı ve denetimli şekilde yürütüyoruz. Ortak alanlarda günlük rutinden periyodik detay temizliğe kadar tüm süreçler, belirlenen standartlara uygun olarak gerçekleştirilir.</p>
+      
+      <h4>Bina ve Site Ortak Alan Temizliği</h4>
+      <p>Girişler, merdivenler, kat holleri, koridorlar ve sosyal alanlar düzenli olarak temizlenir; site genelinde temiz ve bakımlı bir görünüm sağlanır.</p>
+      
+      <h4>Asansör Temizliği</h4>
+      <p>Asansör kabinleri, kapılar ve kontrol panelleri hijyen kurallarına uygun şekilde temizlenerek hem estetik hem de sağlık açısından güvenli kullanım sunulur.</p>
+      
+      <h4>Günlük Çöp Toplama ve Atık Yönetimi</h4>
+      <p>Ortak alanlardaki çöpler günlük olarak toplanır, çöp alanlarının temizliği ve düzeni sağlanarak koku ve görüntü kirliliği önlenir.</p>
+    </div>
+  </dialog>
+
+  <dialog class="saas-modal" id="modal-elektrik">
+    <div class="saas-modal__content">
+      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+      <h3>Elektrik Hizmetleri</h3>
+      <p>Site ve dairelerde elektrik sistemlerinin güvenli ve sorunsuz çalışması için planlı ve hızlı hizmet sunuyoruz. Günlük arızalardan montaj ve bağlantı işlemlerine kadar tüm çalışmalar, teknik kurallara uygun olarak gerçekleştirilir.</p>
+      
+      <h4>Daire İçi Elektrik Arızaları</h4>
+      <p>Elektrik tesisatında oluşan arızalar, sigorta atması ve ani elektrik kesintileri hızlı şekilde tespit edilerek giderilir.</p>
+      
+      <h4>Aydınlatma ve Kamera Sistemleri</h4>
+      <p>Ortak alan aydınlatma onarımları, kamera sistemleri, kapı zilleri ve zil tesisatlarında oluşan arızalar kontrol edilir ve gerekli onarımlar yapılır.</p>
+    </div>
+  </dialog>
+
+  <dialog class="saas-modal" id="modal-tesisat">
+    <div class="saas-modal__content">
+      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+      <h3>Tesisat Hizmetleri</h3>
+      <p>Site ve dairelerde su tesisatının sorunsuz ve güvenli şekilde çalışması için tesisat işlemlerini planlı ve hızlı şekilde gerçekleştiriyoruz.</p>
+      
+      <h4>Su Tesisat Arızaları</h4>
+      <p>Daire içi ve ortak alanlarda oluşan su tesisatı arızaları tespit edilerek kısa sürede giderilir.</p>
+      
+      <h4>Musluk, Batarya ve Vana Değişimi</h4>
+      <p>Arızalı veya eski musluk, batarya ve vanalar, güvenli kullanım sağlayacak ve su sızıntısını önleyecek şekilde yenileriyle değiştirilir.</p>
+      
+      <h4>Lavabo Açma (Tıkanıklık Giderme)</h4>
+      <p>Lavabo ve giderlerde oluşan tıkanıklıklar profesyonel ekipmanlarla açılarak sağlıklı kullanım yeniden sağlanır.</p>
+    </div>
+  </dialog>
+
+  <dialog class="saas-modal" id="modal-boya">
+    <div class="saas-modal__content">
+      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+      <h3>Boya Hizmetleri</h3>
+      <p>Site ve daire yaşam alanlarının estetik ve bakımlı görünmesi için boya ve yüzey düzenleme hizmetlerini planlı şekilde sunuyoruz. Tüm uygulamalar temiz işçilik ve uygun malzeme kullanımı esas alınarak gerçekleştirilir.</p>
+      
+      <h4>Duvar ve Tavan Boyama</h4>
+      <p>Daire içi ve ortak alan boyama işlemleri, mekâna uygun renk seçimiyle düzgün ve temiz bir görünüm sağlayacak şekilde yapılır.</p>
+      
+      <h4>Alçı, Sıva ve Çatlak Onarımı</h4>
+      <p>Duvar ve tavan yüzeylerinde oluşan bozukluklar ve çatlaklar onarılarak yüzey bütünlüğü sağlanır, ardından boyama işlemi uygulanır.</p>
+    </div>
+  </dialog>
+
+  <dialog class="saas-modal" id="modal-asansor">
+    <div class="saas-modal__content">
+      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+      <h3>Asansör Bakım ve Onarım</h3>
+      <p>Site ve bina asansörlerinin güvenli ve kesintisiz çalışması için bakım ve onarım hizmetlerini planlı şekilde yürütüyoruz. Tüm işlemler ilgili mevzuat ve güvenlik standartlarına uygun olarak gerçekleştirilir.</p>
+      
+      <h4>Periyodik Bakım ve Bandrol</h4>
+      <p>Asansörlerin düzenli ve güvenli çalışması için aylık periyodik bakım kontrolleri yapılır. Yıllık periyodik kontroller gerçekleştirilerek yasal bandrol (etiket) süreçleri takip edilir.</p>
+      
+      <h4>Arıza Müdahalesi</h4>
+      <p>Asansörlerde oluşan arızalar hızlı şekilde tespit edilir ve kullanıcı güvenliği öncelik alınarak sorunlar giderilir.</p>
+    </div>
+  </dialog>
+
+  <dialog class="saas-modal" id="modal-cilingir">
+    <div class="saas-modal__content">
+      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+      <h3>Çilingir Hizmetleri</h3>
+      <p>Site ve dairelerde yaşanan kilit ve kapı sorunlarına hızlı ve güvenli çözümler sunuyoruz. Tüm çilingir işlemleri, kapıya ve kilit sistemine zarar vermeden, güvenlik esas alınarak gerçekleştirilir.</p>
+      
+      <h4>Kapı Açma</h4>
+      <p>Anahtar kaybı veya kilit arızası durumlarında kapılar kontrollü ve hasarsız şekilde açılır.</p>
+      
+      <h4>Kilit Değişimi</h4>
+      <p>Arızalı, eski veya güvenlik ihtiyacı olan kilitler, site ve daire güvenliğini en üst düzeye çıkaracak uygun kilit sistemleriyle değiştirilir.</p>
+    </div>
+  </dialog>
+
+  <dialog class="saas-modal" id="modal-kombi">
+    <div class="saas-modal__content">
+      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+      <h3>Kombi ve Petek Hizmetleri</h3>
+      <p>Dairelerde ısınma sistemlerinin verimli ve güvenli çalışması için kombi ve petek hizmetlerini düzenli ve kontrollü şekilde sunuyoruz. İşlemler enerji verimliliğini artırmayı hedefler.</p>
+      
+      <h4>Kombi Bakım ve Onarımı</h4>
+      <p>Kombi sistemleri kontrol edilerek gerekli bakım işlemleri yapılır, oluşan arızalar güvenli kullanım sağlanacak şekilde giderilir.</p>
+      
+      <h4>Petek Temizliği ve Sistem Kontrolü</h4>
+      <p>Peteklerde zamanla oluşan tortu ve kirler temizlenerek ısınma performansı artırılır. Kombi ve petek bağlantıları kontrol edilerek eşit ısı dağılımı sağlanır.</p>
+    </div>
+  </dialog>
+
+  <dialog class="saas-modal" id="modal-bahce">
+    <div class="saas-modal__content">
+      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+      <h3>Bahçe ve Peyzaj Hizmetleri</h3>
+      <p>Site ve bina çevresindeki yeşil alanların düzenli, bakımlı ve estetik görünmesi için bahçe ve peyzaj hizmetlerini planlı şekilde yürütüyoruz. Mevsimsel ihtiyaçlara göre bakım çalışmaları düzenli olarak gerçekleştirilir.</p>
+      
+      <h4>Çim Biçme ve Bitki Bakımı</h4>
+      <p>Çim alanlar düzenli olarak biçilir. Ağaç, çalı ve bitkilerin budama işlemleri yapılarak sağlıklı gelişimleri desteklenir.</p>
+      
+      <h4>Peyzaj Düzenleme</h4>
+      <p>Bahçe ve ortak alanlarda peyzaj düzenlemeleri yapılarak estetik, ferah ve kullanışlı alanlar oluşturulur.</p>
+    </div>
+  </dialog>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const kartlar = document.querySelectorAll('.minimal-card');
+
+    const gozlemci = new IntersectionObserver((kapsamlar) => {
+      // Ekrana aynı anda giren kartları index (sıra) numarasına göre bekletiyoruz
+      kapsamlar.forEach((kapsam, index) => {
+        if (kapsam.isIntersecting) {
+          
+          // Her bir kart kendinden öncekinden 300 milisaniye (0.3 saniye) sonra yola çıkacak
+          setTimeout(() => {
+            kapsam.target.classList.add('goster');
+          }, index * 300); // 150 yerine 300 yaptık, aralarındaki mesafe açıldı
+          
+          gozlemci.unobserve(kapsam.target); 
+        }
+      });
+    }, {
+      threshold: 0.1 
+    });
+
+    kartlar.forEach(kart => {
+      gozlemci.observe(kart);
+    });
+  });
+</script>
 </body>
 
 </html>
