@@ -139,3 +139,4 @@ window.addEventListener("scroll", () => {
 window.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("is-loaded");
 });
+
