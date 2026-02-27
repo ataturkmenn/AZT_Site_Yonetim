@@ -102,6 +102,15 @@
       </div>
 
       <div class="services-right">
+
+        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-aidat.png');" onclick="document.getElementById('modal-aidat').showModal()" data-reveal data-delay="0">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h3>Aidat ve Finans Yönetim Hizmetleri</h3>
+            <p>Aidat takibi, ortak alan faturalarının ödenmesi ve bütçe planlaması şeffafça yürütülür.</p>
+            <button class="minimal-link link-white" onclick="document.getElementById('modal-aidat').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+          </div>
+        </div>
         
         <div class="minimal-card card-bg-image" style="background-image: url('assets/service-temizlik.png');" onclick="document.getElementById('modal-temizlik').showModal()" data-reveal data-delay="0">
           <div class="card-overlay"></div>
@@ -390,6 +399,20 @@
 
   <script src="./script.js"></script>
 
+  <dialog class="saas-modal" id="modal-aidat">
+    <div class="saas-modal__content">
+      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+      <h3>Aidat ve Finans Yönetimi</h3>
+      <p>Site yönetiminin tarafımıza devredilmesi durumunda, sitenizin tüm finansal süreçlerini şeffaflık ve güven ilkesiyle yürütüyor; komşuluk ilişkilerini zedelemeden bütçenizi en verimli şekilde planlıyoruz.</p>
+      
+      <h4>Aidatların Toplanması ve Takibi</h4>
+      <p>Site sakinlerinden aylık aidatların düzenli olarak toplanması, ödemelerin sistem üzerinden profesyonelce takip edilmesi ve borç/alacak durumlarının şeffafça yönetilmesi sağlanır.</p>
+      
+      <h4>Ortak Alan Faturalarının Ödenmesi</h4>
+      <p>Sitenin ortak kullanımına ait elektrik, su, doğalgaz gibi faturalar ile asansör bakımı, personel maaşı gibi tüm sabit ve değişken giderler zamanında, eksiksiz ve resmi kayıt altında ödenir.</p>
+    </div>
+  </dialog>
+
   <dialog class="saas-modal" id="modal-temizlik">
     <div class="saas-modal__content">
       <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
@@ -532,6 +555,24 @@
     kartlar.forEach(kart => {
       gozlemci.observe(kart);
     });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('goster');
+          observer.unobserve(entry.target); 
+        }
+      });
+    }, { 
+      threshold: 0, /* Kartın 1 pikseli bile radara girse tetikle */
+      rootMargin: "50px" /* Kart ekrana girmeden 50px önce animasyonu başlat */
+    });
+
+    const cards = document.querySelectorAll('.minimal-card');
+    cards.forEach(card => observer.observe(card));
   });
 </script>
 </body>

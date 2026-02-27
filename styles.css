@@ -325,37 +325,24 @@ body::before {
 /* Ana Taşıyıcı Izgara (Sol Başlık, Sağ Kartlar) */
 .services-split {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 320px 1fr; /* Sol 320px, sağ taraf kalan tüm boşluk */
   gap: 60px;
   align-items: start;
+  max-width: 1450px; /* Sırrı burada! Sadece bu bölümü genişlettik */
+  width: 95%; 
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Sol Taraf: Sabit Başlık */
 .services-left {
   position: sticky;
   top: 120px; 
+  text-align: left;
 }
 
-.minimal-title {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  color: #0f172a;
-  text-transform: uppercase;
-  margin: 0 0 20px 0;
-}
-
-.minimal-desc {
-  font-size: 15px;
-  color: #64748b;
-  line-height: 1.7;
-  margin: 0;
-}
-
-/* Sağ Taraf: Kartların Dizilimi (2 Sütun) */
 .services-right {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 kart devasa boyutlarda sığacak */
   gap: 30px;
 }
 
@@ -647,4 +634,39 @@ button.minimal-link {
   box-shadow: 0 15px 30px rgba(0,0,0,0.15);
   /* Hover süresini daha kısa ve keskin (0.3s) yapıyoruz ki anında tepki versin */
   transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+/* ================= SIFIR KASMA: GPU HIZLANDIRMALI SAAS ANİMASYONU ================= */
+
+.minimal-card {
+  opacity: 0;
+  /* translateY yerine 3 boyutlu translate3d kullandık. Bu direkt Ekran Kartını (GPU) çalıştırır ve kasmayı sıfırlar */
+  transform: translate3d(0, 40px, 0); 
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.minimal-card.goster {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* 3'lü sütun yapısına uygun "Dalga" gecikmeleri (Artık tarayıcıyı yormayacak) */
+/* 1. Satır */
+.services-right .minimal-card:nth-child(1) { transition-delay: 0s; }
+.services-right .minimal-card:nth-child(2) { transition-delay: 0.1s; }
+.services-right .minimal-card:nth-child(3) { transition-delay: 0.2s; }
+/* 2. Satır */
+.services-right .minimal-card:nth-child(4) { transition-delay: 0.1s; }
+.services-right .minimal-card:nth-child(5) { transition-delay: 0.2s; }
+.services-right .minimal-card:nth-child(6) { transition-delay: 0.3s; }
+/* 3. Satır */
+.services-right .minimal-card:nth-child(7) { transition-delay: 0.2s; }
+.services-right .minimal-card:nth-child(8) { transition-delay: 0.3s; }
+.services-right .minimal-card:nth-child(9) { transition-delay: 0.4s; }
+
+/* Fare ile üzerine gelindiğindeki büyüme efektini koruduk ve gecikmeyi iptal ettik */
+.minimal-card.goster:hover {
+  transform: translate3d(0, -8px, 0);
+  transition-delay: 0s !important; /* Hover anında beklememesi için */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
