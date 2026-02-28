@@ -636,37 +636,34 @@ button.minimal-link {
   transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-/* ================= SIFIR KASMA: GPU HIZLANDIRMALI SAAS ANİMASYONU ================= */
+/* ================= KALKIŞ VE İNİŞİ BİREBİR AYNI YAPAN KUSURSUZ SİSTEM ================= */
 
 .minimal-card {
   opacity: 0;
-  /* translateY yerine 3 boyutlu translate3d kullandık. Bu direkt Ekran Kartını (GPU) çalıştırır ve kasmayı sıfırlar */
-  transform: translate3d(0, 40px, 0); 
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  translate: 0 60px; 
+  
+  /* Animasyonları ayırıyoruz: Geliş animasyonları (opacity, translate) 0.8 saniye sürecek. 
+     Hover animasyonları (transform, box-shadow) orijinalindeki gibi 0.3 saniye sürecek. */
+  transition-property: opacity, translate, transform, box-shadow !important;
+  transition-duration: 0.8s, 0.8s, 0.3s, 0.3s !important;
+  transition-timing-function: ease-out, ease-out, ease, ease !important;
 }
 
 .minimal-card.goster {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
+  translate: 0 0;
 }
 
-/* 3'lü sütun yapısına uygun "Dalga" gecikmeleri (Artık tarayıcıyı yormayacak) */
-/* 1. Satır */
-.services-right .minimal-card:nth-child(1) { transition-delay: 0s; }
-.services-right .minimal-card:nth-child(2) { transition-delay: 0.1s; }
-.services-right .minimal-card:nth-child(3) { transition-delay: 0.2s; }
-/* 2. Satır */
-.services-right .minimal-card:nth-child(4) { transition-delay: 0.1s; }
-.services-right .minimal-card:nth-child(5) { transition-delay: 0.2s; }
-.services-right .minimal-card:nth-child(6) { transition-delay: 0.3s; }
-/* 3. Satır */
-.services-right .minimal-card:nth-child(7) { transition-delay: 0.2s; }
-.services-right .minimal-card:nth-child(8) { transition-delay: 0.3s; }
-.services-right .minimal-card:nth-child(9) { transition-delay: 0.4s; }
+/* SIRRI BURADA: Gecikmeleri sadece 'opacity' ve 'translate'e (ilk iki değere) veriyoruz. 
+   'transform' ve 'box-shadow' gecikmeleri 0s kalıyor ki hover anında bekleme yapmasın! */
+.services-right .minimal-card:nth-child(1) { transition-delay: 0.1s, 0.1s, 0s, 0s !important; }
+.services-right .minimal-card:nth-child(2) { transition-delay: 0.2s, 0.2s, 0s, 0s !important; }
+.services-right .minimal-card:nth-child(3) { transition-delay: 0.3s, 0.3s, 0s, 0s !important; }
+.services-right .minimal-card:nth-child(4) { transition-delay: 0.2s, 0.2s, 0s, 0s !important; }
+.services-right .minimal-card:nth-child(5) { transition-delay: 0.3s, 0.3s, 0s, 0s !important; }
+.services-right .minimal-card:nth-child(6) { transition-delay: 0.4s, 0.4s, 0s, 0s !important; }
+.services-right .minimal-card:nth-child(7) { transition-delay: 0.3s, 0.3s, 0s, 0s !important; }
+.services-right .minimal-card:nth-child(8) { transition-delay: 0.4s, 0.4s, 0s, 0s !important; }
+.services-right .minimal-card:nth-child(9) { transition-delay: 0.5s, 0.5s, 0s, 0s !important; }
 
-/* Fare ile üzerine gelindiğindeki büyüme efektini koruduk ve gecikmeyi iptal ettik */
-.minimal-card.goster:hover {
-  transform: translate3d(0, -8px, 0);
-  transition-delay: 0s !important; /* Hover anında beklememesi için */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
+/* Ekstra bir :hover kodu yazmıyoruz, sitenin kendi orijinal lüks kalkış/iniş hızı tıkır tıkır çalışacak */
