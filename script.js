@@ -140,3 +140,10 @@ window.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("is-loaded");
 });
 
+// Modallarda (Açılır pencerelerde) dışarıdaki siyah boşluğa tıklayınca kapatma özelliği
+const modals = document.querySelectorAll('.saas-modal');
+modals.forEach(modal => {
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.close();
+  });
+});
