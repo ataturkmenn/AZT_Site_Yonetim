@@ -377,10 +377,52 @@ body.is-loaded .hero__cta .btn:nth-child(2) { animation: saasUp .65s ease forwar
 }
 
 @media (max-width: 920px) {
-  /* mobil menü görünümü */
+  /* mobil menü ikonu */
   .nav__toggle { display: block; }
-  .nav { position: fixed; inset: 70px 0 auto 0; background: rgba(255, 255, 255, 0.96); border-bottom: 1px solid var(--line); padding: 10px 4%; display: none; flex-direction: column; gap: 6px; }
-  .nav a { padding: 12px 10px; border: 1px solid var(--line); border-radius: 14px; }
+  
+  /* ================= BÜTÜNLEŞİK ÇEKMECE MENÜ (Header'a yapışık) ================= */
+  .nav { 
+    position: absolute; 
+    top: 100%; /* Header'ın bittiği çizgiden milimi milimine başlar */
+    left: 0; /* Ekranın soluna tam yapışır */
+    right: 0; /* Ekranın sağına tam yapışır */
+    margin-top: 0; /* Kopukluk yaratan o aradaki boşluğu tamamen sildik */
+    background: rgba(255, 255, 255, 0.98); /* Header ile uyumlu bembeyaz ve net */
+    border-top: 1px solid var(--line); /* Header ile arasına çok ince, şık bir ayraç */
+    border-bottom: 1px solid var(--line); 
+    border-radius: 0 0 24px 24px; /* SIRRI BURADA: Üstler köşeli ve yapışık, sadece alt köşeler kavisli */
+    padding: 10px 5% 24px; /* Yanlardan hiza alır, alttan ferah bir boşluk bırakır */
+    display: none; /* JS ile açılıp kapanır */
+    flex-direction: column; 
+    gap: 2px; 
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.2); /* Aşağı sarkan lüks derinlik gölgesi */
+  }
+  
+  /* Butonları sola yaslı, modern mobil uygulama satırlarına çeviriyoruz */
+  .nav a { 
+    display: block;
+    width: 100%;
+    padding: 14px 16px; 
+    background: transparent; 
+    border: none; 
+    border-radius: 12px; 
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-align: left !important; 
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  
+  /* Masaüstü hover çizgisini mobilde iptal et */
+  .nav a::after { display: none; }
+  
+  /* Dokunma (Tap) Efekti */
+  .nav a:active, .nav a:hover {
+    background: #f1f5f9; 
+    color: var(--primary);
+  }
+  /* ================================================================================= */
+
   .header__actions { display: none; }
   
   /* gridlerin tek sütuna düşmesi */
@@ -391,3 +433,328 @@ body.is-loaded .hero__cta .btn:nth-child(2) { animation: saasUp .65s ease forwar
 @media (max-width: 600px) {
   .services-right { grid-template-columns: 1fr; }
 }
+
+/* ================= EFSANEVİ MOBİL APP DENEYİMİ (Yatay Swipe ve Pulse) ================= */
+
+/* 1. Yatay Kaydırmalı Hizmet Kartları (Sadece Mobilde) */
+@media (max-width: 768px) {
+  .services-right {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important; /* Sağa sola kaydırmayı açar */
+    scroll-snap-type: x mandatory; /* Mıknatıs efektini açar */
+    gap: 16px !important;
+    padding-bottom: 24px; /* Alt boşluk ferahlığı */
+    
+    /* Kartların ekranın kenarından çıkıp gelmesi için sihirli taşma ayarı */
+    margin: 0 -5%; 
+    padding-left: 5%;
+    padding-right: 5%;
+    
+    /* Çirkin kaydırma çubuklarını (scrollbar) gizleme */
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+
+  .services-right::-webkit-scrollbar {
+    display: none;
+  }
+
+  .services-right .minimal-card {
+    /* Kart ekranın %85'ini kaplar, sağdaki kartın %15'lik ucu "beni de kaydır" diye gözükür */
+    flex: 0 0 85% !important; 
+    scroll-snap-align: center; /* Kartı ekranın tam ortasına kitler */
+    height: 380px !important; /* Mobilde boyunu çok az kısalttık daha şık dursun diye */
+  }
+}
+
+/* 2. Nefes Alan (Pulse) Lüks Yüzen Buton (Tüm Cihazlarda Çalışır) */
+@keyframes luksPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+  70% { box-shadow: 0 0 0 18px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+.floating {
+  animation: luksPulse 2.5s infinite; /* 2.5 saniyede bir yavaşça dalga yayar */
+}
+
+/* ================= PREMIUM "CİLALAMA" PAKETİ (Mikro-Etkileşimler) ================= */
+
+/* 1. iOS Tarzı Fiziksel Dokunma Hissi (Haptic Touch) */
+/* Kullanıcı butona veya karta basılı tuttuğunda hafifçe içe esner */
+.btn:active, 
+.minimal-card.goster:active, 
+.minimal-card.card-bg-image:active,
+.saas-modal__close:active {
+  transform: scale(0.96) translateY(0) !important;
+  transition: transform 0.1s ease !important;
+}
+
+/* 2. Havada Süzülen Görseller (Levitation Efekti) */
+/* Hakkımızda resminin yavaşça aşağı-yukarı nefes alması */
+@keyframes levitate {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+.about-img-wrap {
+  animation: levitate 6s ease-in-out infinite;
+}
+
+/* Rozetin (Badge) resme ters yönde hareket ederek 3D derinlik (Parallax) yaratması */
+@keyframes levitate-reverse {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(8px); }
+  100% { transform: translateY(0px); }
+}
+.about-badge {
+  animation: levitate-reverse 5s ease-in-out infinite;
+}
+
+/* 3. Hero Rozetinde (Badge) Akan Işık (Shimmer Efekti) */
+.hero__content .badge {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.hero__content .badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-20deg);
+  animation: badgeShine 4s infinite; /* 4 saniyede bir ışık geçer */
+}
+@keyframes badgeShine {
+  0% { left: -150%; }
+  20% { left: 150%; }
+  100% { left: 150%; } /* Bekleme süresi yaratmak için %100'e kadar sağda kalır */
+}
+
+/* ================= 4. İNCE İŞÇİLİK VE DETAYLAR (İstatistik, Form, SSS) ================= */
+
+/* 1. İstatistik Rakamlarını Lüks Gradient Yapma */
+.stat__num {
+  background: linear-gradient(135deg, var(--primary), #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  /* Hover anında rakamın çok hafif büyümesi */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.stat:hover .stat__num {
+  transform: scale(1.08);
+  filter: drop-shadow(0 4px 10px rgba(37, 99, 235, 0.3));
+}
+
+/* İstatistik kutusunun kendisi de dokununca hafif havaya kalksın */
+.stat {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+.stat:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12) !important;
+  border-color: rgba(37, 99, 235, 0.2) !important;
+}
+
+/* 2. Form Alanlarına (Input/Textarea) Mıknatıs ve Işık Efekti */
+input, textarea {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+input:focus, textarea:focus {
+  transform: translateY(-2px); /* Yazı yazarken kutu 2px yukarı kalkar */
+  box-shadow: 0 12px 24px -6px rgba(37, 99, 235, 0.25) !important; /* Lüks mavi parlama */
+  border-color: var(--primary) !important;
+}
+
+/* 3. SSS (Sıkça Sorulan Sorular) İçin Lüks Sol Çizgi Efekti */
+.acc {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Sol tarafa gizli bir çizgi ekliyoruz */
+.acc::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 10%;
+  height: 80%;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--primary), var(--primary2));
+  border-radius: 4px;
+  opacity: 0;
+  transform: scaleY(0);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* Üzerine gelince veya dokununca çizgi yukarıdan aşağı uzayarak belirir */
+.acc:hover::before, .acc:focus-within::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+.acc:hover {
+  transform: translateX(4px); /* Kutuyu çok hafif sağa kaydırarak yol verir */
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= 5. BİLİNÇALTI KALİTE (Aura, Scrollbar, Seçim) ================= */
+
+/* 1. Lüks Kaydırma Çubuğu (Custom Scrollbar) */
+::-webkit-scrollbar {
+  width: 8px; /* Çok ince ve zarif bir kalınlık */
+}
+::-webkit-scrollbar-track {
+  background: var(--bg); /* Arka planla kusursuz uyum */
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.3); /* Dinlenme halinde şık bir gri */
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary); /* Tutup kaydırırken senin lüks mavine dönüşür */
+}
+
+/* 2. Markalı Metin Seçimi (Highlight) */
+/* Yazıları seçince standart mavi değil, markana özel estetik bir renk çıkar */
+::selection {
+  background: rgba(37, 99, 235, 0.15); 
+  color: var(--primary);
+}
+::-moz-selection {
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--primary);
+}
+
+/* 3. Buton Aurası (Enerji/Işık Yayma Efekti) */
+/* Ana renkli butonların arkasından sızan lüks sisli gölge */
+.btn--primary {
+  position: relative;
+  z-index: 1;
+}
+.btn--primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit; /* Butonun kendi rengini kopyalar */
+  z-index: -1;
+  filter: blur(14px); /* Işığı dağıtıp sis efekti verir */
+  opacity: 0.4;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn--primary:hover::before {
+  opacity: 0.75;
+  transform: scale(1.1); /* Üzerine gelince ışık dışarı doğru patlar */
+}
+
+/* ================= 6. SOSYAL MEDYA İKONLARI VE BUTON İÇİ İKONLAR ================= */
+
+/* Footer Sosyal Medya Alanı */
+.footer__socials {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Yuvarlak, Lüks İkon Tasarımı */
+.footer__socials a {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08); /* Hafif saydam şık arka plan */
+  color: #f5f5f4;
+  font-size: 18px;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Fareyle Üzerine Gelince (Hover Efekti) */
+.footer__socials a:hover {
+  transform: translateY(-5px); /* Havaya kalkar */
+  background: var(--primary); /* Lüks mavi rengini alır */
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4); /* Mavi ışık saçar */
+}
+
+/* İnstagram İçin Özel Orijinal Renk (İsteğe Bağlı - Hover anında aktif olur) */
+.footer__socials a:hover .fa-instagram {
+  background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Buton içindeki ikonların yazıyla arasına zarif bir boşluk */
+.btn i {
+  margin-right: 8px;
+  font-size: 1.1em;
+}
+
+/* ================= 7. İLETİŞİM BÖLÜMÜ SOSYAL MEDYA İKONLARI ================= */
+.contact-socials {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.08); /* Adres bilgileriyle arasına çok şık bir kesik çizgi çeker */
+}
+
+.socials-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--muted);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.socials-wrap {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* İkon Kutularının Standart (Sakin) Hali */
+.socials-wrap a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px; /* Orijinal tasarımdaki lüks kavis */
+  background: #ffffff;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 20px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+/* Fareyle Üzerine Gelince: Havaya kalkar, lüks bir ışık saçar ve markanın rengini alır */
+.socials-wrap a:hover {
+  transform: translateY(-5px);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+/* Her Markanın Orijinal Premium Renkleri ve Işık Efektleri (Glow) */
+.socials-wrap .soc-wa:hover { 
+  background: #25D366; 
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); 
+}
+.socials-wrap .soc-ig:hover { 
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); 
+  box-shadow: 0 10px 20px rgba(214, 36, 159, 0.3); 
+}
+.socials-wrap .soc-fb:hover { 
+  background: #1877F2; 
+  box-shadow: 0 10px 20px rgba(24, 119, 242, 0.3); 
+}
+.socials-wrap .soc-in:hover { 
+  background: #0A66C2; 
+  box-shadow: 0 10px 20px rgba(10, 102, 194, 0.3); 
+}
+
