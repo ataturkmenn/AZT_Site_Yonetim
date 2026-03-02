@@ -758,3 +758,24 @@ input:focus, textarea:focus {
   box-shadow: 0 10px 20px rgba(10, 102, 194, 0.3); 
 }
 
+/* ================= 9. MOBİL KAYDIRMA (SWIPE) TİTREME/ZIPLAMA ÇÖZÜMÜ ================= */
+
+@media (max-width: 980px) {
+  /* Mobilde parmakla dokunup kaydırırken kartların havaya kalkmasını veya küçülmesini (titremesini) tamamen iptal eder */
+  .services-right .minimal-card.goster:hover,
+  .services-right .minimal-card.card-bg-image:hover,
+  .services-right .minimal-card.goster:active,
+  .services-right .minimal-card.card-bg-image:active,
+  .services-right .minimal-card:active {
+    transform: translateY(0) scale(1) !important;
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15) !important;
+    transition: none !important; /* Kaydırırken animasyon hesaplamasını durdurur, kasmayı önler */
+  }
+  
+  /* iOS ve Android'de yatay kaydırmanın donanımsal olarak kusursuz akması için */
+  .services-right {
+    -webkit-overflow-scrolling: touch !important; /* Apple cihazlarda yağ gibi kaymayı zorunlu kılar */
+    overscroll-behavior-x: contain !important; /* Sağa sola hızlı çekerken sayfanın bütünüyle sağa sola sallanmasını engeller */
+    touch-action: pan-x pan-y !important; /* Tarayıcıya "Sadece benim izin verdiğim yönlerde kaydır" emrini verir */
+  }
+}
