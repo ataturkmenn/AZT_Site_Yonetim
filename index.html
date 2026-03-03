@@ -126,7 +126,7 @@
           <div class="card-overlay"></div>
           <div class="card-content">
             <h3>Elektrik Hizmetleri</h3>
-            <p>Site ortak kullanım alanları ile daire içlerindeki elektrik tesisat arızaları profesyonel ekibimiz tarafından titizlikle giderilmektedir.</p>
+            <p>Ortak alan ve daire içlerindeki elektrik arızaları hızlı çözülür.</p>
             <button class="minimal-link link-white" onclick="document.getElementById('modal-elektrik').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
           </div>
         </div>
@@ -422,134 +422,139 @@
   <script src="./script.js"></script>
 
   <dialog class="saas-modal" id="modal-aidat">
-    <div class="saas-modal__content">
-      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+    <div class="saas-modal__cover">
+      <button class="saas-modal__close" onclick="document.getElementById('modal-aidat').close()" aria-label="Kapat">✕</button>
+    </div>
+    <div class="saas-modal__body">
       <h3>Aidat ve Finans Yönetimi</h3>
       <p>Site yönetiminin tarafımıza devredilmesi durumunda, sitenizin tüm finansal süreçlerini şeffaflık ve güven ilkesiyle yürütüyor; komşuluk ilişkilerini zedelemeden bütçenizi en verimli şekilde planlıyoruz.</p>
       
-      <h4>Aidatların Toplanması ve Takibi</h4>
-      <p>Kat maliklerinden aylık aidatların düzenli olarak toplanması, ödemelerin sistem üzerinden profesyonelce takip edilmesi ve borç/alacak durumlarının şeffafça yönetilmesi sağlanır.</p>
-      
-      <h4>Ortak Alan Faturalarının Ödenmesi</h4>
-      <p>Sitenin ortak kullanımına ait elektrik, su, doğalgaz gibi faturalar ile asansör bakımı, personel maaşı gibi tüm sabit ve değişken giderler zamanında, eksiksiz ve resmi kayıt altında ödenir.</p>
+      <ul class="modal-list">
+        <li><strong>Aidatların Toplanması ve Takibi:</strong> Kat maliklerinden aylık aidatların düzenli toplanması, ödemelerin sistem üzerinden profesyonelce takibi ve borç/alacak durumlarının şeffafça yönetilmesi.</li>
+        <li><strong>Ortak Alan Faturalarının Ödenmesi:</strong> Sitenin ortak kullanımına ait elektrik, su, doğalgaz gibi faturalar ile asansör bakımı, personel maaşı gibi tüm ödemeler zamanında ve eksiksiz olarak takip edilir.</li>
+      </ul>
     </div>
   </dialog>
 
   <dialog class="saas-modal" id="modal-temizlik">
-    <div class="saas-modal__content">
-      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+    <div class="saas-modal__cover">
+      <button class="saas-modal__close" onclick="document.getElementById('modal-temizlik').close()" aria-label="Kapat">✕</button>
+    </div>
+    <div class="saas-modal__body">
       <h3>Temizlik Hizmetleri</h3>
-      <p>Site ve bina yaşam alanlarının hijyenik, düzenli ve sağlıklı kalması için temizlik hizmetlerini planlı ve denetimli şekilde yürütüyoruz. Ortak alanlarda günlük rutinden periyodik detay temizliğe kadar tüm süreçler, belirlenen standartlara uygun olarak gerçekleştirilir.</p>
+      <p>Site ve bina yaşam alanlarının hijyenik, düzenli ve sağlıklı kalması için temizlik hizmetlerini planlı ve denetimli şekilde yürütüyoruz. Günlük rutinden periyodik detay temizliğe kadar tüm süreçler profesyonelce yönetilir.</p>
       
-      <h4>Bina ve Site Ortak Alan Temizliği</h4>
-      <p>Girişler, merdivenler, kat holleri, koridorlar ve sosyal alanlar düzenli olarak temizlenir; site genelinde temiz ve bakımlı bir görünüm sağlanır.</p>
-      
-      <h4>Asansör Temizliği</h4>
-      <p>Asansör kabinleri, kapılar ve kontrol panelleri hijyen kurallarına uygun şekilde temizlenerek hem estetik hem de sağlık açısından güvenli kullanım sunulur.</p>
-      
-      <h4>Günlük Çöp Toplama ve Atık Yönetimi</h4>
-      <p>Ortak alanlardaki çöpler günlük olarak toplanır, çöp alanlarının temizliği ve düzeni sağlanarak koku ve görüntü kirliliği önlenir.</p>
+      <ul class="modal-list">
+        <li><strong>Ortak Alan Temizliği:</strong> Girişler, merdivenler, kat holleri, koridorlar ve sosyal alanların düzenli temizliği.</li>
+        <li><strong>Asansör Temizliği:</strong> Kabinler, kapılar ve kontrol panellerinin hijyen kurallarına uygun detaylı temizliği.</li>
+        <li><strong>Atık Yönetimi:</strong> Ortak alanlardaki çöplerin günlük toplanması ve çöp alanlarının kokuya karşı dezenfekte edilmesi.</li>
+      </ul>
     </div>
   </dialog>
 
   <dialog class="saas-modal" id="modal-elektrik">
-    <div class="saas-modal__content">
-      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+    <div class="saas-modal__cover">
+      <button class="saas-modal__close" onclick="document.getElementById('modal-elektrik').close()" aria-label="Kapat">✕</button>
+    </div>
+    <div class="saas-modal__body">
       <h3>Elektrik Hizmetleri</h3>
       <p>Site ve dairelerde elektrik sistemlerinin güvenli ve sorunsuz çalışması için planlı ve hızlı hizmet sunuyoruz. Günlük arızalardan montaj ve bağlantı işlemlerine kadar tüm çalışmalar, teknik kurallara uygun olarak gerçekleştirilir.</p>
       
-      <h4>Daire İçi Elektrik Arızaları</h4>
-      <p>Elektrik tesisatında oluşan arızalar, sigorta atması ve ani elektrik kesintileri hızlı şekilde tespit edilerek giderilir.</p>
-      
-      <h4>Aydınlatma ve Kamera Sistemleri</h4>
-      <p>Ortak alan aydınlatma onarımları, kamera sistemleri, kapı zilleri ve zil tesisatlarında oluşan arızalar kontrol edilir ve gerekli onarımlar yapılır.</p>
+      <ul class="modal-list">
+        <li><strong>Daire İçi Arızalar:</strong> Elektrik tesisatında oluşan arızalar, sigorta atması ve ani elektrik kesintilerine hızlı müdahale.</li>
+        <li><strong>Aydınlatma ve Güvenlik:</strong> Ortak alan aydınlatma onarımları, kamera sistemleri ve zil tesisatlarında oluşan arızaların giderilmesi.</li>
+      </ul>
     </div>
   </dialog>
 
   <dialog class="saas-modal" id="modal-tesisat">
-    <div class="saas-modal__content">
-      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+    <div class="saas-modal__cover">
+      <button class="saas-modal__close" onclick="document.getElementById('modal-tesisat').close()" aria-label="Kapat">✕</button>
+    </div>
+    <div class="saas-modal__body">
       <h3>Tesisat Hizmetleri</h3>
       <p>Site ve dairelerde su tesisatının sorunsuz ve güvenli şekilde çalışması için tesisat işlemlerini planlı ve hızlı şekilde gerçekleştiriyoruz.</p>
       
-      <h4>Su Tesisat Arızaları</h4>
-      <p>Daire içi ve ortak alanlarda oluşan su tesisatı arızaları tespit edilerek kısa sürede giderilir.</p>
-      
-      <h4>Musluk, Batarya ve Vana Değişimi</h4>
-      <p>Arızalı veya eski musluk, batarya ve vanalar, güvenli kullanım sağlayacak ve su sızıntısını önleyecek şekilde yenileriyle değiştirilir.</p>
-      
-      <h4>Lavabo Açma (Tıkanıklık Giderme)</h4>
-      <p>Lavabo ve giderlerde oluşan tıkanıklıklar profesyonel ekipmanlarla açılarak sağlıklı kullanım yeniden sağlanır.</p>
+      <ul class="modal-list">
+        <li><strong>Su Tesisat Arızaları:</strong> Daire içi ve ortak alanlarda oluşan su kaçakları ve arızaların tespiti ve onarımı.</li>
+        <li><strong>Armatür Değişimi:</strong> Arızalı veya eski musluk, batarya ve vanaların güvenli yenileriyle değiştirilmesi.</li>
+        <li><strong>Lavabo ve Gider Açma:</strong> Oluşan tıkanıklıkların kırmadan, profesyonel ekipmanlarla açılması.</li>
+      </ul>
     </div>
   </dialog>
 
   <dialog class="saas-modal" id="modal-boya">
-    <div class="saas-modal__content">
-      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
-      <h3>Boya Hizmetleri</h3>
-      <p>Site ve daire yaşam alanlarının estetik ve bakımlı görünmesi için boya ve yüzey düzenleme hizmetlerini planlı şekilde sunuyoruz. Tüm uygulamalar temiz işçilik ve uygun malzeme kullanımı esas alınarak gerçekleştirilir.</p>
+    <div class="saas-modal__cover">
+      <button class="saas-modal__close" onclick="document.getElementById('modal-boya').close()" aria-label="Kapat">✕</button>
+    </div>
+    <div class="saas-modal__body">
+      <h3>Boya ve Onarım Hizmetleri</h3>
+      <p>Site ve daire yaşam alanlarının estetik ve bakımlı görünmesi için boya ve yüzey düzenleme hizmetlerini sunuyoruz. Tüm uygulamalar temiz işçilik ve A kalite malzeme esas alınarak gerçekleştirilir.</p>
       
-      <h4>Duvar ve Tavan Boyama</h4>
-      <p>Daire içi ve ortak alan boyama işlemleri, mekâna uygun renk seçimiyle düzgün ve temiz bir görünüm sağlayacak şekilde yapılır.</p>
-      
-      <h4>Alçı, Sıva ve Çatlak Onarımı</h4>
-      <p>Duvar ve tavan yüzeylerinde oluşan bozukluklar ve çatlaklar onarılarak yüzey bütünlüğü sağlanır, ardından boyama işlemi uygulanır.</p>
+      <ul class="modal-list">
+        <li><strong>Duvar ve Tavan Boyama:</strong> Daire içi ve ortak alanlarda mekâna uygun renk seçimiyle profesyonel boya uygulaması.</li>
+        <li><strong>Yüzey Onarımı:</strong> Duvar ve tavanlarda oluşan bozukluk, dökülme ve çatlakların alçı ile pürüzsüz hale getirilmesi.</li>
+      </ul>
     </div>
   </dialog>
 
   <dialog class="saas-modal" id="modal-asansor">
-    <div class="saas-modal__content">
-      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+    <div class="saas-modal__cover">
+      <button class="saas-modal__close" onclick="document.getElementById('modal-asansor').close()" aria-label="Kapat">✕</button>
+    </div>
+    <div class="saas-modal__body">
       <h3>Asansör Bakım ve Onarım</h3>
-      <p>Site ve bina asansörlerinin güvenli ve kesintisiz çalışması için bakım ve onarım hizmetlerini planlı şekilde yürütüyoruz. Tüm işlemler ilgili mevzuat ve güvenlik standartlarına uygun olarak gerçekleştirilir.</p>
+      <p>Site ve bina asansörlerinin güvenli ve kesintisiz çalışması için bakım hizmetlerini yürütüyoruz. Tüm işlemler ilgili yasal mevzuat ve güvenlik standartlarına %100 uygun olarak gerçekleştirilir.</p>
       
-      <h4>Periyodik Bakım ve Bandrol</h4>
-      <p>Asansörlerin düzenli ve güvenli çalışması için aylık periyodik bakım kontrolleri yapılır. Yıllık periyodik kontroller gerçekleştirilerek yasal bandrol (etiket) süreçleri takip edilir.</p>
-      
-      <h4>Arıza Müdahalesi</h4>
-      <p>Asansörlerde oluşan arızalar hızlı şekilde tespit edilir ve kullanıcı güvenliği öncelik alınarak sorunlar giderilir.</p>
+      <ul class="modal-list">
+        <li><strong>Periyodik Bakım ve Bandrol:</strong> Aylık rutin bakımların yapılması ve yıllık yasal bandrol (etiket) süreçlerinin takibi.</li>
+        <li><strong>Hızlı Arıza Müdahalesi:</strong> Asansörlerde oluşan arızaların tespiti ve kullanıcı güvenliği önceliğiyle hızla onarılması.</li>
+      </ul>
     </div>
   </dialog>
 
   <dialog class="saas-modal" id="modal-cilingir">
-    <div class="saas-modal__content">
-      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+    <div class="saas-modal__cover">
+      <button class="saas-modal__close" onclick="document.getElementById('modal-cilingir').close()" aria-label="Kapat">✕</button>
+    </div>
+    <div class="saas-modal__body">
       <h3>Çilingir Hizmetleri</h3>
-      <p>Site ve dairelerde yaşanan kilit ve kapı sorunlarına hızlı ve güvenli çözümler sunuyoruz. Tüm çilingir işlemleri, kapıya ve kilit sistemine zarar vermeden, güvenlik esas alınarak gerçekleştirilir.</p>
+      <p>Site ve dairelerde yaşanan kilit ve kapı sorunlarına hızlı ve güvenli çözümler sunuyoruz. Tüm çilingir işlemleri, kapıya ve mevcut sisteme zarar vermeden gerçekleştirilir.</p>
       
-      <h4>Kapı Açma</h4>
-      <p>Anahtar kaybı veya kilit arızası durumlarında kapılar kontrollü ve hasarsız şekilde açılır.</p>
-      
-      <h4>Kilit Değişimi</h4>
-      <p>Arızalı, eski veya güvenlik ihtiyacı olan kilitler, site ve daire güvenliğini en üst düzeye çıkaracak uygun kilit sistemleriyle değiştirilir.</p>
+      <ul class="modal-list">
+        <li><strong>Hasarsız Kapı Açma:</strong> Anahtar kaybı veya kilit arızası durumlarında kapıların kontrollü açılması.</li>
+        <li><strong>Kilit ve Barel Değişimi:</strong> Arızalı veya güvenlik zafiyeti yaratan kilitlerin yüksek güvenlikli yeni sistemlerle değiştirilmesi.</li>
+      </ul>
     </div>
   </dialog>
 
   <dialog class="saas-modal" id="modal-kombi">
-    <div class="saas-modal__content">
-      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+    <div class="saas-modal__cover">
+      <button class="saas-modal__close" onclick="document.getElementById('modal-kombi').close()" aria-label="Kapat">✕</button>
+    </div>
+    <div class="saas-modal__body">
       <h3>Kombi ve Petek Hizmetleri</h3>
-      <p>Dairelerde ısınma sistemlerinin verimli ve güvenli çalışması için kombi ve petek hizmetlerini düzenli ve kontrollü şekilde sunuyoruz. İşlemler enerji verimliliğini artırmayı hedefler.</p>
+      <p>Dairelerde ısınma sistemlerinin yüksek performansla ve güvenli çalışması için profesyonel bakım hizmetleri sunuyoruz. Düzenli bakım, doğalgaz faturanızda ciddi tasarruf sağlar.</p>
       
-      <h4>Kombi Bakım ve Onarımı</h4>
-      <p>Kombi sistemleri kontrol edilerek gerekli bakım işlemleri yapılır, oluşan arızalar güvenli kullanım sağlanacak şekilde giderilir.</p>
-      
-      <h4>Petek Temizliği ve Sistem Kontrolü</h4>
-      <p>Peteklerde zamanla oluşan tortu ve kirler temizlenerek ısınma performansı artırılır. Kombi ve petek bağlantıları kontrol edilerek eşit ısı dağılımı sağlanır.</p>
+      <ul class="modal-list">
+        <li><strong>Kombi Bakım ve Onarımı:</strong> Sistem parçalarının kontrolü, temizliği ve olası arızaların kış gelmeden giderilmesi.</li>
+        <li><strong>Makineli Petek Temizliği:</strong> Peteklerde zamanla oluşan çamur, tortu ve kirecin özel cihazlarla temizlenerek ısı eşitliğinin sağlanması.</li>
+      </ul>
     </div>
   </dialog>
 
   <dialog class="saas-modal" id="modal-bahce">
-    <div class="saas-modal__content">
-      <button class="saas-modal__close" onclick="this.closest('dialog').close()">✕</button>
+    <div class="saas-modal__cover">
+      <button class="saas-modal__close" onclick="document.getElementById('modal-bahce').close()" aria-label="Kapat">✕</button>
+    </div>
+    <div class="saas-modal__body">
       <h3>Bahçe ve Peyzaj Hizmetleri</h3>
-      <p>Site ve bina çevresindeki yeşil alanların düzenli, bakımlı ve estetik görünmesi için bahçe ve peyzaj hizmetlerini planlı şekilde yürütüyoruz. Mevsimsel ihtiyaçlara göre bakım çalışmaları düzenli olarak gerçekleştirilir.</p>
+      <p>Site çevresindeki yeşil alanların düzenli, bakımlı ve estetik görünmesi için mevsimsel peyzaj hizmetlerini planlı bir şekilde yürütüyoruz.</p>
       
-      <h4>Çim Biçme ve Bitki Bakımı</h4>
-      <p>Çim alanlar düzenli olarak biçilir. Ağaç, çalı ve bitkilerin budama işlemleri yapılarak sağlıklı gelişimleri desteklenir.</p>
-      
-      <h4>Peyzaj Düzenleme</h4>
-      <p>Bahçe ve ortak alanlarda peyzaj düzenlemeleri yapılarak estetik, ferah ve kullanışlı alanlar oluşturulur.</p>
+      <ul class="modal-list">
+        <li><strong>Çim Biçme ve Bitki Bakımı:</strong> Çimlerin düzenli biçilmesi; ağaç, çalı ve bitkilerin form budamalarının yapılması.</li>
+        <li><strong>Peyzaj Düzenleme ve İlaçlama:</strong> Bahçenin estetik görünümünün korunması ve bitkilerin zararlılara karşı mevsimsel ilaçlanması.</li>
+      </ul>
     </div>
   </dialog>
 
