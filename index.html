@@ -104,88 +104,189 @@
 
       <div class="services-right">
 
-        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-aidat.webp');" onclick="document.getElementById('modal-aidat').showModal()" data-reveal data-delay="0">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h3>Aidat ve Finans Yönetim Hizmetleri</h3>
-            <p>Aidat takibi ve ortak alan faturalarının ödenmesi şeffafça yürütülür.</p>
-            <button class="minimal-link link-white" onclick="document.getElementById('modal-aidat').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-          </div>
-        </div>
-        
-        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-temizlik.webp');" onclick="document.getElementById('modal-temizlik').showModal()" data-reveal data-delay="0">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h3>Temizlik Hizmetleri</h3>
-            <p>Ortak alan temizliği, asansör hijyeni ve günlük çöp toplama düzenli şekilde yürütülür.</p>
-            <button class="minimal-link link-white" onclick="document.getElementById('modal-temizlik').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-          </div>
-        </div>
+  <div class="minimal-card card-bg-image" style="background-image: url('assets/service-aidat.webp');" onclick="this.classList.toggle('expanded')" data-reveal data-delay="0">
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <h3>Aidat ve Finans Yönetim Hizmetleri</h3>
+      <p>Aidat takibi ve ortak alan faturalarının ödenmesi şeffafça yürütülür.</p>
+      
+      <div class="card-details-wrapper">
+        <div class="card-details-inner">
+          <ul class="modal-list">
+            <li><strong>Aidatların Toplanması ve Takibi:</strong> Kat maliklerinden aylık aidatların düzenli toplanması, ödemelerin sistem üzerinden profesyonelce takibi ve borç/alacak durumlarının şeffafça yönetilmesi.</li>
+            <li><strong>Ortak Alan Faturalarının Ödenmesi:</strong> Sitenin ortak kullanımına ait elektrik, su, doğalgaz gibi faturalar ile asansör bakımı, personel maaşı gibi tüm sabit/değişken giderlerin zamanında ve resmi kayıt altında ödenmesi.</li>
+          </ul>
 
-        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-elektrik.webp');" onclick="document.getElementById('modal-elektrik').showModal()" >
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h3>Elektrik Hizmetleri</h3>
-            <p>Ortak alan ve daire içlerindeki elektrik arızaları hızlı çözülür.</p>
-            <button class="minimal-link link-white" onclick="document.getElementById('modal-elektrik').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-          </div>
         </div>
-
-        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-tesisat.webp');" onclick="document.getElementById('modal-tesisat').showModal()">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h3>Tesisat Hizmetleri</h3>
-            <p>Su arızaları, tıkanıklık, batarya-musluk ve vana değişimleri planlı şekilde yapılır.</p>
-            <button class="minimal-link link-white" onclick="document.getElementById('modal-tesisat').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-          </div>
-        </div>
-
-        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-boya.webp');" onclick="document.getElementById('modal-boya').showModal()">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h3>Boya Hizmetleri</h3>
-            <p>Alçı-sıva, duvar/tavan boyama ve çatlak onarım işleri temiz işçilikle yapılır.</p>
-            <button class="minimal-link link-white" onclick="document.getElementById('modal-boya').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-          </div>
-        </div>
-
-        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-asansor.webp');" onclick="document.getElementById('modal-asansor').showModal()">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h3>Asansör Hizmetleri</h3>
-            <p>Aylık/yıllık bakım, bandrol süreçleri ve arıza müdahaleleri takip edilir.</p>
-            <button class="minimal-link link-white" onclick="document.getElementById('modal-asansor').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-          </div>
-        </div>
-
-        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-cilingir.webp');" onclick="document.getElementById('modal-cilingir').showModal()">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h3>Çilingir Hizmetleri</h3>
-            <p>Kapı açma ve kilit değişimi işlemleri güvenlik esas alınarak hasarsız yapılır.</p>
-            <button class="minimal-link link-white" onclick="document.getElementById('modal-cilingir').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-          </div>
-        </div>
-
-        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-kombi.webp');" onclick="document.getElementById('modal-kombi').showModal()">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h3>Kombi & Petek</h3>
-            <p>Isınma verimi ve güvenliği için bakım, temizlik ve sistem kontrolü yapılır.</p>
-            <button class="minimal-link link-white" onclick="document.getElementById('modal-kombi').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-          </div>
-        </div>
-
-        <div class="minimal-card card-bg-image" style="background-image: url('assets/service-bahce.webp');" onclick="document.getElementById('modal-bahce').showModal()">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h3>Bahçe ve Peyzaj</h3>
-            <p>Çim biçme, budama, bitki bakımı ve peyzaj düzenleme çalışmaları planlı yürütülür.</p>
-            <button class="minimal-link link-white" onclick="document.getElementById('modal-bahce').showModal()">DETAYLARI GÖR <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-          </div>
-        </div>
-
       </div>
+      
+      <div class="card-expand-btn"><i class="fa-solid fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+  <div class="minimal-card card-bg-image" style="background-image: url('assets/service-temizlik.webp');" onclick="this.classList.toggle('expanded')" data-reveal data-delay="0">
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <h3>Temizlik Hizmetleri</h3>
+      <p>Ortak alan temizliği, asansör hijyeni ve günlük çöp toplama düzenli şekilde yürütülür.</p>
+      
+      <div class="card-details-wrapper">
+        <div class="card-details-inner">
+          <ul class="modal-list">
+            <li><strong>Ortak Alan Temizliği:</strong> Girişler, merdivenler, kat holleri, koridorlar ve sosyal alanların düzenli temizliği.</li>
+            <li><strong>Asansör Temizliği:</strong> Kabinler, kapılar ve kontrol panellerinin hijyen kurallarına uygun detaylı temizliği.</li>
+            <li><strong>Atık Yönetimi:</strong> Ortak alanlardaki çöplerin günlük toplanması ve çöp alanlarının kokuya karşı dezenfekte edilmesi.</li>
+          </ul>
+
+        </div>
+      </div>
+      
+      <div class="card-expand-btn"><i class="fa-solid fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+  <div class="minimal-card card-bg-image" style="background-image: url('assets/service-elektrik.webp');" onclick="this.classList.toggle('expanded')">
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <h3>Elektrik Hizmetleri</h3>
+      <p>Ortak alan ve daire içlerindeki elektrik arızalarına hizla mudahale edilerek cozum sununur.</p>
+      
+      <div class="card-details-wrapper">
+        <div class="card-details-inner">
+          <ul class="modal-list">
+            <li><strong>Daire İçi Arızalar:</strong> Elektrik tesisatında oluşan arızalar, sigorta atması ve ani elektrik kesintilerine hızlı müdahale.</li>
+            <li><strong>Aydınlatma ve Güvenlik:</strong> Ortak alan aydınlatma onarımları, kamera sistemleri ve zil tesisatlarında oluşan arızaların giderilmesi.</li>
+          </ul>
+
+        </div>
+      </div>
+      
+      <div class="card-expand-btn"><i class="fa-solid fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+  <div class="minimal-card card-bg-image" style="background-image: url('assets/service-tesisat.webp');" onclick="this.classList.toggle('expanded')">
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <h3>Tesisat Hizmetleri</h3>
+      <p>Su arızaları, tıkanıklık, batarya-musluk ve vana değişimleri hizla mudahale edilerek cozum sununur.</p>
+      
+      <div class="card-details-wrapper">
+        <div class="card-details-inner">
+          <ul class="modal-list">
+            <li><strong>Su Tesisat Arızaları:</strong> Daire içi ve ortak alanlarda oluşan su kaçakları ve arızaların tespiti ve onarımı.</li>
+            <li><strong>Armatür Değişimi:</strong> Arızalı veya eski musluk, batarya ve vanaların güvenli yenileriyle değiştirilmesi.</li>
+            <li><strong>Lavabo ve Gider Açma:</strong> Oluşan tıkanıklıkların kırmadan, profesyonel ekipmanlarla açılması.</li>
+          </ul>
+
+        </div>
+      </div>
+      
+      <div class="card-expand-btn"><i class="fa-solid fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+  <div class="minimal-card card-bg-image" style="background-image: url('assets/service-boya.webp');" onclick="this.classList.toggle('expanded')">
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <h3>Boya Hizmetleri</h3>
+      <p>Alçı-sıva, duvar/tavan boyama ve çatlak onarım işleri titiz işçilikle yapılır.</p>
+      
+      <div class="card-details-wrapper">
+        <div class="card-details-inner">
+          <ul class="modal-list">
+            <li><strong>Duvar ve Tavan Boyama:</strong> Daire içi ve ortak alanlarda mekâna uygun renk seçimiyle profesyonel boya uygulaması.</li>
+            <li><strong>Yüzey Onarımı:</strong> Duvar ve tavanlarda oluşan bozukluk, dökülme ve çatlakların alçı ile pürüzsüz hale getirilmesi.</li>
+          </ul>
+
+        </div>
+      </div>
+      
+      <div class="card-expand-btn"><i class="fa-solid fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+  <div class="minimal-card card-bg-image" style="background-image: url('assets/service-asansor.webp');" onclick="this.classList.toggle('expanded')">
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <h3>Asansör Hizmetleri</h3>
+      <p>Aylık/yıllık bakım, etiket süreçleri ve arıza müdahaleleri takip edilir.</p>
+      
+      <div class="card-details-wrapper">
+        <div class="card-details-inner">
+          <ul class="modal-list">
+            <li><strong>Periyodik Bakım ve Bandrol:</strong> Aylık rutin bakımların yapılması ve yıllık yasal bandrol (etiket) süreçlerinin takibi.</li>
+            <li><strong>Hızlı Arıza Müdahalesi:</strong> Asansörlerde oluşan arızaların tespiti ve kullanıcı güvenliği önceliğiyle hızla onarılması.</li>
+          </ul>
+
+        </div>
+      </div>
+      
+      <div class="card-expand-btn"><i class="fa-solid fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+  <div class="minimal-card card-bg-image" style="background-image: url('assets/service-cilingir.webp');" onclick="this.classList.toggle('expanded')">
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <h3>Çilingir Hizmetleri</h3>
+      <p>Kapı açma ve kilit değişimi işlemleri güvenlik esas alınarak yapılır.</p>
+      
+      <div class="card-details-wrapper">
+        <div class="card-details-inner">
+          <ul class="modal-list">
+            <li><strong>Hasarsız Kapı Açma:</strong> Anahtar kaybı veya kilit arızası durumlarında kapıların kontrollü açılması.</li>
+            <li><strong>Kilit ve Barel Değişimi:</strong> Arızalı veya güvenlik zafiyeti yaratan kilitlerin yüksek güvenlikli yeni sistemlerle değiştirilmesi.</li>
+          </ul>
+
+        </div>
+      </div>
+      
+      <div class="card-expand-btn"><i class="fa-solid fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+  <div class="minimal-card card-bg-image" style="background-image: url('assets/service-kombi.webp');" onclick="this.classList.toggle('expanded')">
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <h3>Kombi & Petek</h3>
+      <p>Isınma verimi ve güvenliği için bakım, temizlik ve sistem kontrolü yapılır.</p>
+      
+      <div class="card-details-wrapper">
+        <div class="card-details-inner">
+          <ul class="modal-list">
+            <li><strong>Kombi Bakım ve Onarımı:</strong> Sistem parçalarının kontrolü, temizliği ve olası arızaların kış gelmeden giderilmesi.</li>
+            <li><strong>Makineli Petek Temizliği:</strong> Peteklerde zamanla oluşan çamur, tortu ve kirecin özel cihazlarla temizlenerek ısı eşitliğinin sağlanması.</li>
+          </ul>
+
+        </div>
+      </div>
+      
+      <div class="card-expand-btn"><i class="fa-solid fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+  <div class="minimal-card card-bg-image" style="background-image: url('assets/service-bahce.webp');" onclick="this.classList.toggle('expanded')">
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <h3>Bahçe ve Peyzaj</h3>
+      <p>Çim biçme, budama, bitki bakımı ve peyzaj düzenleme çalışmaları planlı yürütülür.</p>
+      
+      <div class="card-details-wrapper">
+        <div class="card-details-inner">
+          <ul class="modal-list">
+            <li><strong>Çim Biçme ve Bitki Bakımı:</strong> Çimlerin düzenli biçilmesi; ağaç, çalı ve bitkilerin form budamalarının yapılması.</li>
+            <li><strong>Peyzaj Düzenleme ve İlaçlama:</strong> Bahçenin estetik görünümünün korunması ve bitkilerin zararlılara karşı mevsimsel ilaçlanması.</li>
+          </ul>
+
+        </div>
+      </div>
+      
+      <div class="card-expand-btn"><i class="fa-solid fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+</div>
     </div>
   </section>
 
@@ -231,35 +332,61 @@
     </div>
   </section>
 
-  <section class="section" id="about">
-    <div class="container about-grid">
+  <section class="section section--ambient" id="about">
+    <div class="container">
       
-      <div class="about-visual" data-reveal>
-        <div class="about-img-wrap">
-          <img src="assets/about-img.jpg" alt="AZT Yeni Nesil Site Yönetimi" />
-          <div class="about-badge">
-            <span class="about-badge-num">100%</span>
-            <span class="about-badge-text">Şeffaf<br>Yönetim</span>
+      <div class="about-showcase">
+        
+        <div class="showcase-image" data-reveal>
+          <img src="assets/about-img.jpg" alt="AZT Site Yönetimi" />
+          <div class="showcase-badge">
+            <div class="badge-icon"><i class="fa-solid fa-check-double"></i></div>
+            <div class="badge-text">
+              <strong>%100</strong>
+              <span>Şeffaf Yönetim</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-content" data-reveal data-delay="150">
+          <span class="showcase-label">HAKKIMIZDA</span>
+          <h2 class="showcase-title">Yaşam Alanlarınıza Değer ve Huzur Katıyoruz</h2>
+          
+          <div class="showcase-highlight-card">
+            <div class="highlight-icon"><i class="fa-solid fa-medal"></i></div>
+            <h3>Kalite Politikamız</h3>
+            <p>Site yönetimi konusunda kat malikleri memnuniyetini ilke edinerek, yasal mevzuat ve şartlara uygun projeleri gerçekleştirmek ve en iyi hizmeti vermekteyiz. Aynı zamanda iklim değişikliği ile ilgili riskleri de değerlendirerek, çevresel sürdürülebilirlik ilkesini benimsemekteyiz.</p>
+            <p>Çalışanlarımızın sürekli eğitimlerle aidiyetini ve motivasyonunu arttırmak, teknolojik gelişmeleri firmamıza entegre ederek sektörün öncüsü olmak politikamızdır.</p>
+            <p>Kalite standartlarını şirketimizde uygulayarak sistemimizi sürekli iyileştirmek şirketimizin politikasıdır. Bu çerçevede, çevresel performansımızı izleyerek ve değerlendirerek sürekli iyileştirmeye odaklanmaktayız.</p>
           </div>
         </div>
       </div>
 
-      <div class="about-content" data-reveal data-delay="100">
-        <h2 class="minimal-title">HAKKIMIZDA</h2>
-        <h3 class="about-subtitle">Yaşam Alanlarınıza Değer ve Huzur Katıyoruz</h3>
-        <p>AZT Profesyonel Site Yönetimi olarak, karmaşıklaşan site ve apartman yönetim süreçlerini şeffaf, güvenilir ve yenilikçi bir anlayışla devralıyoruz.</p>
-        <p>Amacımız; komşuluk ilişkilerini zedelemeden, bütçeyi en verimli şekilde kullanarak yaşam alanlarınızın standartlarını yükseltmektir. Hukuki, mali ve teknik tüm operasyonları tek merkezden, profesyonel kadromuzla yönetiyoruz.</p>
+      <div class="about-features" data-reveal data-delay="250">
         
-        <ul class="about-list">
-          <li><strong>Şeffaf Bütçe:</strong> Gelir ve giderler her an denetlenebilir.</li>
-          <li><strong>Hızlı Müdahale:</strong> Arıza ve sorunlara anında çözüm.</li>
-          <li><strong>Hukuki Güvence:</strong> Tüm işlemler ilgili mevzuata uygun yürütülür.</li>
-        </ul>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h4>Hedeflerimiz</h4>
+          <p>Yönetimini yaptığımız sitelere artı değer katan, yenilikçi hizmet anlayışımız ile iş hayatını ve yaşamı kolaylaştıran kurumsal çözümler sunmak.</p>
+          <p>Site ve kat maliklerine sunduğumuz hizmetler ile profesyonel yönetim sektöründe liderliğe kalıcı olarak yerleşmektir.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-rocket"></i></div>
+          <h4>Misyonumuz</h4>
+          <p>Hizmet verdiğimiz sitelere artı değer katarak Türkiye'nin en saygın, güvenilir ve profesyonel hizmet şirketi olmak.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-eye"></i></div>
+          <h4>Vizyonumuz</h4>
+          <p>Kat malikleri memnuniyeti odaklı çalışma anlayışı, geleceği hedefleyen şirket politikaları ve sürekli değişim/gelişim üzerine kurulu stratejik planlar ile yaşamı kolaylaştıran kurumsal çözümler sunmak.</p>
+        </div>
+
       </div>
 
     </div>
   </section>
-
   <!-- References (plain) -->
   <section class="section" id="references">
     <div class="container">
