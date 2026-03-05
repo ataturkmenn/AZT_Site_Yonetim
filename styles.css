@@ -339,7 +339,7 @@ body::before {
   .showcase-title { font-size: 32px; }
 }
 
-/* ================= 6. HİZMETLER (KUSURSUZ AKILLI KARTLAR) ================= */
+/* ================= 6. HİZMETLER (KUSURSUZ AKILLI KARTLAR & SAAS EFEKTİ) ================= */
 .services-split { display: grid; grid-template-columns: 320px 1fr; gap: 60px; max-width: 1450px; margin: 0 auto; width: 95%; align-items: start; }
 .services-left { position: sticky; top: 120px; }
 
@@ -351,7 +351,7 @@ body::before {
   align-items: start; 
 }
 
-/* KART ANA İSKELETİ: Orijinal 420px yükseklik burada korundu */
+/* KART ANA İSKELETİ: Orijinal Boyut + SaaS Giriş Animasyonu */
 .minimal-card {
   position: relative;
   min-height: 420px; 
@@ -363,30 +363,48 @@ body::before {
   cursor: pointer;
   display: flex;
   flex-direction: column; 
-  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
-  /* Lüks ve yumuşak yaylanma efekti (cubic-bezier) geri geldi */
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  border: none;
+  
+  /* --- SAAS GİRİŞ ANİMASYONU BAŞLANGIÇ DURUMU --- */
+  opacity: 0;
+  translate: 0 60px; 
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15);
+  
+  transition-property: opacity, translate, transform, box-shadow;
+  transition-duration: 0.8s, 0.8s, 0.4s, 0.4s;
+  transition-timing-function: ease-out, ease-out, cubic-bezier(0.16, 1, 0.3, 1), ease;
 }
 
-/* ORİJİNAL SAAS ZIPLAMA EFEKTİ (10px havaya kalkar ve lüks bir gölge yayar) */
-.minimal-card:not(.expanded):hover { 
+.minimal-card.goster {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.services-right .minimal-card:nth-child(1) { transition-delay: 0.1s, 0.1s, 0s, 0s; }
+.services-right .minimal-card:nth-child(2) { transition-delay: 0.2s, 0.2s, 0s, 0s; }
+.services-right .minimal-card:nth-child(3) { transition-delay: 0.3s, 0.3s, 0s, 0s; }
+.services-right .minimal-card:nth-child(4) { transition-delay: 0.2s, 0.2s, 0s, 0s; }
+.services-right .minimal-card:nth-child(5) { transition-delay: 0.3s, 0.3s, 0s, 0s; }
+.services-right .minimal-card:nth-child(6) { transition-delay: 0.4s, 0.4s, 0s, 0s; }
+.services-right .minimal-card:nth-child(7) { transition-delay: 0.3s, 0.3s, 0s, 0s; }
+.services-right .minimal-card:nth-child(8) { transition-delay: 0.4s, 0.4s, 0s, 0s; }
+.services-right .minimal-card:nth-child(9) { transition-delay: 0.5s, 0.5s, 0s, 0s; }
+
+.minimal-card.goster:not(.expanded):hover { 
   transform: translateY(-10px); 
   box-shadow: 0 24px 48px -12px rgba(0,0,0,0.4); 
 }
 
-/* Karanlık Perde */
+.minimal-card.goster:not(.expanded):hover .card-overlay {
+  background: linear-gradient(to top, rgba(15,23,42,0.98) 0%, rgba(15,23,42,0.7) 60%, rgba(15,23,42,0.3) 100%);
+}
+
 .card-overlay {
   position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(to top, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.4) 60%, transparent 100%);
   transition: all 0.4s ease;
 }
 
-/* ORİJİNAL SAAS PERDE KARARMASI (Üzerine gelince resim daha gizemli kararır) */
-.minimal-card:not(.expanded):hover .card-overlay {
-  background: linear-gradient(to top, rgba(15,23,42,0.98) 0%, rgba(15,23,42,0.7) 60%, rgba(15,23,42,0.3) 100%);
-}
-
-/* YAZI ALANI - ORİJİNAL HİZALAMA */
 .card-content {
   position: relative; z-index: 2;
   display: flex; flex-direction: column;
@@ -397,9 +415,25 @@ body::before {
 }
 
 .minimal-card h3 { font-size: 22px; font-weight: 800; margin: 0 0 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
-.minimal-card p { font-size: 15px; margin: 0; color: rgba(255,255,255,0.85); line-height: 1.5; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
 
-/* AÇILIR İÇERİK: SİHİRLİ MAX-HEIGHT YÖNTEMİ */
+/* ================= İŞTE YENİ SİHİR BURADA ================= */
+/* Öndeki kısa özet yazısını seçer ve animasyon ekler */
+.minimal-card .card-content > p { 
+  font-size: 15px; margin: 0; color: rgba(255,255,255,0.85); line-height: 1.5; text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 100px;
+  opacity: 1;
+  overflow: hidden;
+}
+
+/* KART AÇILDIĞINDA: O kısa ve tekrar eden özet yazısı eriyerek yok olur! */
+.minimal-card.expanded .card-content > p {
+  max-height: 0;
+  opacity: 0;
+  margin-bottom: 0;
+}
+/* ========================================================== */
+
 .card-details-wrapper {
   max-height: 0;
   overflow: hidden;
@@ -407,20 +441,22 @@ body::before {
   transition: max-height 0.5s ease, margin-top 0.5s ease, opacity 0.5s ease;
 }
 
+/* Aradaki kesik çizgiyi kaldırdık, çünkü artık sadece uzun yazı var */
 .card-details-inner { 
-  padding-top: 20px; 
-  border-top: 1px dashed rgba(255,255,255,0.2); 
+  padding-top: 0; 
+  border-top: none; 
 }
 
-/* KART AÇILDIĞINDA (Expanded) */
 .minimal-card.expanded { transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4); }
 .minimal-card.expanded .card-overlay {
   background: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
 }
+
+/* Uzun yazının başlıkla arasına şık bir boşluk bıraktık */
 .minimal-card.expanded .card-details-wrapper { 
   max-height: 800px; 
-  margin-top: 20px;
+  margin-top: 16px;
   opacity: 1;
 }
 
