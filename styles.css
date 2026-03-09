@@ -946,3 +946,319 @@ input:focus, textarea:focus { transform: translateY(-2px); box-shadow: 0 12px 24
 #contact .socials-wrap .soc-fb:hover { box-shadow: 0 10px 20px rgba(24, 119, 242, 0.4) !important; }
 #contact .socials-wrap .soc-ig:hover { box-shadow: 0 10px 20px rgba(214, 36, 159, 0.4) !important; }
 #contact .socials-wrap .soc-in:hover { box-shadow: 0 10px 20px rgba(10, 102, 194, 0.4) !important; }
+
+/* ================= ORİJİNAL WHATSAPP BUTONU ================= */
+.btn--whatsapp {
+  background: #25D366 !important; /* WhatsApp Orijinal Yeşili */
+  border: 1px solid #20b858 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* İçindeki İkon Ayarı */
+.btn--whatsapp i {
+  color: #ffffff !important;
+  font-size: 1.3em;
+  margin-right: 8px;
+}
+
+/* Üzerine Gelindiğinde (Hover) Parlama ve Yükselme Efekti */
+.btn--whatsapp:hover {
+  background: #20b858 !important; /* Bir tık daha koyu, tok yeşil */
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4) !important;
+  color: #ffffff !important;
+}
+
+/* ================= HAKKIMIZDA BÖLÜMÜ YAZILARI İÇİN YAVAŞLATILMIŞ SAAS EFEKTİ ================= */
+/* Sadece Hakkımızda bölümünü hedefler, sitenin diğer yerlerini bozmaz */
+
+#about [data-reveal] {
+  opacity: 0;
+  filter: blur(16px); /* İlk başta normalden çok daha soluk ve bulanık başlar */
+  transform: translateY(35px) scale(0.98); /* Biraz daha aşağıdan, derinden gelir */
+  
+  /* Animasyon süresi 1 saniyeden 1.8 saniyeye çıkarıldı (Çok daha ağır ve lüks) */
+  transition-property: opacity, filter, transform;
+  transition-duration: 1.8s; 
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1); /* Pürüzsüz yavaşlama eğrisi */
+}
+
+/* Ekrana girip görünür olduğunda çalışacak netleşme kodu */
+#about [data-reveal].is-visible {
+  opacity: 1;
+  filter: blur(0); /* Pırıl pırıl bir netliğe kavuşur */
+  transform: translateY(0) scale(1);
+}
+
+/* ================= PAZARLAMA ODAKLI GENİŞ PAKETLER ================= */
+
+/* Kartların enine büyümesi için container genişletildi */
+.package-container { width: min(1350px, 96%) !important; }
+
+.marketing-pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.1fr; /* Premium kart bilerek bir tık daha geniş */
+  gap: 30px;
+  align-items: stretch;
+}
+
+.m-pricing-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 32px;
+  padding: 44px 36px; /* İç boşluklar artırıldı, enine daha ferah */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  
+  /* HIZ DÜZELTMESİ: Hantal geçiş yerine akıcı ve seri geçiş */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+  will-change: transform, box-shadow;
+}
+
+.m-pricing-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+/* Başlık ve Açıklamalar */
+.mp-head { margin-bottom: 30px; }
+.mp-head h3 { font-size: 28px; font-weight: 800; color: #0f172a; margin: 0 0 12px; letter-spacing: -0.5px; }
+.mp-head p { font-size: 15.5px; color: #64748b; line-height: 1.6; margin: 0; min-height: 52px; }
+
+/* Gövde ve Listeler */
+.mp-body { flex-grow: 1; margin-bottom: 40px; }
+.mp-includes { 
+  font-size: 13px; font-weight: 800; color: #3b82f6; 
+  text-transform: uppercase; letter-spacing: 0.5px; 
+  margin-bottom: 20px; padding-bottom: 12px; 
+  border-bottom: 1px solid #e2e8f0; 
+}
+
+.mp-body ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; }
+.mp-body ul li { display: flex; align-items: flex-start; gap: 14px; }
+.mp-body ul li i { 
+  color: #3b82f6; font-size: 14px; margin-top: 2px; 
+  background: rgba(59, 130, 246, 0.1); 
+  border-radius: 50%; width: 24px; height: 24px; 
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; 
+}
+.mp-body ul li span { font-size: 15px; color: #334155; line-height: 1.5; font-weight: 500; }
+
+.mp-footer { margin-top: auto; }
+
+
+/* ================= BİLİNÇALTI MANİPÜLASYONU: VIP PREMIUM KART ================= */
+.mp-vip-focus {
+  background: linear-gradient(145deg, #0f172a 0%, #1e1b4b 100%); /* Lüks Gece Mavisi ve Koyu Mor Karışımı */
+  border: 2px solid #8b5cf6; /* Parlak Mor VIP Çerçeve */
+  box-shadow: 0 25px 60px -10px rgba(139, 92, 246, 0.35);
+  position: relative;
+  z-index: 2;
+  transform: scale(1.04); /* Diğerlerinden bilinçli olarak devasa durur */
+  
+  /* HIZ DÜZELTMESİ: VIP kart için akıcı ve seri geçiş */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+  will-change: transform, box-shadow;
+}
+
+.mp-vip-focus:hover { 
+  box-shadow: 0 35px 70px -15px rgba(139, 92, 246, 0.5); 
+  border-color: #a78bfa; 
+  transform: scale(1.04) translateY(-6px) !important;
+}
+
+.mp-badge-vip {
+  position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, #f59e0b, #fbbf24); /* Altın Sarısı Lüks Rozet */
+  color: #451a03; padding: 8px 20px; border-radius: 999px; width: max-content;
+  font-size: 13px; font-weight: 900; letter-spacing: 1px;
+  box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4);
+}
+
+/* VIP Kart İçi Yazı Renkleri */
+.mp-vip-focus .mp-head h3 { color: #ffffff; }
+.mp-vip-focus .mp-head p { color: #cbd5e1; }
+.mp-includes-vip {
+  font-size: 13.5px; font-weight: 800; color: #a78bfa; 
+  text-transform: uppercase; letter-spacing: 0.5px; 
+  margin-bottom: 20px; padding-bottom: 12px; 
+  border-bottom: 1px solid rgba(255,255,255,0.1); 
+}
+
+/* VIP Kart İkonları Altın Sarısı ve Mor Parlar */
+.mp-vip-focus .mp-body ul li i { background: rgba(139, 92, 246, 0.25); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.5); }
+.mp-vip-focus .mp-body ul li span { color: #f8fafc; font-size: 15.5px; }
+
+/* Mobilde Uyum */
+@media (max-width: 1100px) {
+  .marketing-pricing-grid { grid-template-columns: 1fr; max-width: 600px; margin: 40px auto 0; gap: 50px; }
+  .mp-vip-focus { transform: scale(1) !important; }
+  .mp-vip-focus:hover { transform: translateY(-6px) !important; }
+}
+
+/* ================= PAKETLER BÖLÜMÜ ARKA PLANI (NOKTALI GRID & VIP SPOTLIGHT) ================= */
+#packages {
+  position: relative;
+  overflow: hidden;
+  background-color: #f8fafc !important; /* Çok açık, ferah bir gri/beyaz tonu */
+  
+  /* İnce Noktalı Lüks Teknoloji Deseni (SaaS Grid) */
+  background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px) !important;
+  background-size: 32px 32px !important;
+  z-index: 1;
+}
+
+/* 1. VIP KARTININ ARKASINDAN VURAN ALTIN/MOR PROJEKTÖR IŞIĞI */
+#packages::before {
+  content: "";
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  right: -150px; /* Tam sağdaki Premium kartın arkasına hizalandı */
+  top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(245, 158, 11, 0.08) 35%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 2. SOL TARAFA DENGELEYİCİ HAFİF MAVİ IŞIK (Boş kalmaması için) */
+#packages::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  left: -200px;
+  bottom: -100px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* İçeriğin ışıkların ve desenin üstünde net kalması için */
+#packages .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ================= MODERN REFERANSLAR BÖLÜMÜ (İSTATİSTİKLER & YORUMLAR) ================= */
+
+/* --- İstatistik Kartları (Ferah ve Animasyonlu) --- */
+.ref-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.ref-stat-card {
+  background: #ffffff;
+  padding: 40px 20px;
+  border-radius: 32px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.ref-stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.06);
+  border-color: #cbd5e1;
+}
+
+/* İstatistik İkonları */
+.stat-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+/* ================= HAREKETLİ RAKAMLAR (SİTE RENGİ VE PARLAK YAPI) ================= */
+.stat-number {
+  font-size: 56px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1;
+  letter-spacing: -2px;
+
+  /* Düz siyah yerine sitenin lüks kurumsal mavisi (Gradient) */
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* Renk geçişinin rakamlara tam oturması için */
+}
+
+.stat-label {
+  font-size: 16px;
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* --- Müşteri Yorumları (Lüks Gece Mavisi Konsepti) --- */
+.ref-quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.ref-quote-card {
+  background: #0f172a; /* İletişim ve Hakkımızda bölümüyle uyumlu lüks karanlık zemin */
+  padding: 44px;
+  border-radius: 32px;
+  border: 1px solid #1e293b;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.ref-quote-card:hover {
+  transform: translateY(-5px);
+  border-color: #38bdf8;
+}
+
+/* Yorum İkonu ve Yazılar */
+.quote-icon {
+  font-size: 36px;
+  color: #38bdf8;
+  opacity: 0.3;
+  margin-bottom: 24px;
+}
+
+.ref-quote-card p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #cbd5e1;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.quote-author strong {
+  color: #38bdf8;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* --- Mobil Uyumluluk --- */
+@media (max-width: 980px) {
+  .ref-stats-grid { grid-template-columns: 1fr; gap: 20px; }
+  .ref-quotes-grid { grid-template-columns: 1fr; gap: 20px; }
+  .stat-number { font-size: 46px; }
+}
