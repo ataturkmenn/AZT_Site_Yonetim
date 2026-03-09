@@ -1262,3 +1262,63 @@ input:focus, textarea:focus { transform: translateY(-2px); box-shadow: 0 12px 24
   .ref-quotes-grid { grid-template-columns: 1fr; gap: 20px; }
   .stat-number { font-size: 46px; }
 }
+
+/* ================= SABİT ARAMA BUTONU VE NABIZ EFEKTİ ================= */
+.floating-phone-btn {
+  position: fixed;
+  /* Teklif al butonunun yüksekliğine göre burayı ayarlayabilirsin (Genelde 90px tam üstüne oturur) */
+  bottom: 90px; 
+  right: 30px; /* Teklif al butonu ile aynı hizada olması için sağ boşluk */
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #3b82f6, #1e40af); /* Sitenin lüks kurumsal mavisi */
+  color: #ffffff !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  z-index: 999;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+/* Hafif Nabız (Pulse) Animasyonu - Arkadan yayılan lüks ışık dalgası */
+.floating-phone-btn::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulse-ring 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.floating-phone-btn:hover {
+  transform: scale(1.1) translateY(-4px);
+  background: linear-gradient(135deg, #1e40af, #0f172a); /* Üzerine gelince koyulaşır */
+  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.5);
+}
+
+.floating-phone-btn:hover::before {
+  animation: none; /* Üzerine gelince dalga durur, lüks bir sessizlik olur */
+}
+
+/* Nabız Dalga Animasyonu Matematiği */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* Mobilde sağ alt köşe çok dar olacağı için biraz daha küçültebiliriz */
+@media (max-width: 768px) {
+  .floating-phone-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    right: 20px;
+    bottom: 80px; /* Mobilde Teklif al butonuna göre bu rakamı biraz düşürebilirsin */
+  }
+}
