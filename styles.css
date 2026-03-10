@@ -1322,3 +1322,7 @@ input:focus, textarea:focus { transform: translateY(-2px); box-shadow: 0 12px 24
     bottom: 80px; /* Mobilde Teklif al butonuna göre bu rakamı biraz düşürebilirsin */
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
