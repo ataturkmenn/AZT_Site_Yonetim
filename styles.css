@@ -1326,3 +1326,31 @@ input:focus, textarea:focus { transform: translateY(-2px); box-shadow: 0 12px 24
 html {
   scroll-behavior: smooth;
 }
+
+/* ================= MOBİL HİZMETLER SLIDER (TİTREME / EKSEN KİLİDİ DÜZELTMESİ) ================= */
+
+/* Kaydırma alanını (slider) kontrol eden ana kutu */
+.services-right {
+  overflow-x: auto !important;
+  overflow-y: hidden !important; /* Dikey (yukarı/aşağı) sekmeyi kesin ve net olarak engeller */
+  -webkit-overflow-scrolling: touch !important; /* iOS/iPhone cihazlarda yağ gibi kaymayı sağlar */
+  
+  /* Sağa sola kaydırırken sayfanın arka planını esnetmeyi/çekiştirmeyi durdurur */
+  overscroll-behavior-x: contain !important; 
+  overscroll-behavior-y: none !important;
+  
+  /* Mıknatıs (Snap) özelliğini aktif eder */
+  scroll-snap-type: x mandatory !important;
+  
+  /* Çapraz parmak hareketlerinde tarayıcının kafasının karışmasını önler */
+  touch-action: pan-x pan-y !important; 
+  
+  /* Mobilde alt kısımda oluşabilecek kaydırma çubuğu kartı kesmesin diye nefes boşluğu */
+  padding-bottom: 20px !important; 
+}
+
+/* Her bir hizmet kartının ekranın neresinde duracağını ayarlayan mıknatıs kodu */
+.minimal-card {
+  scroll-snap-align: center !important; /* Kartı ekranın tam ortasında hizalamaya zorlar */
+  scroll-snap-stop: always !important; /* Hızlıca kaydırılsa bile bir kartta fren yapıp durmasını sağlar */
+}
