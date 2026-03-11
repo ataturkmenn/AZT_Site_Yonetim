@@ -1327,39 +1327,47 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ================= SADECE MOBİL İÇİN YATAY EKSEN KİLİDİ VE SLIDER KONTROLÜ ================= */
-
 @media (max-width: 1024px) {
-  /* 1. Bütün sayfanın laçka gibi sağa sola oynamasını kesin olarak engeller */
   html, body {
-    overflow-x: hidden !important; 
+    overflow-x: hidden !important;
     width: 100% !important;
   }
 
-  /* 2. Kartların hapis kalmasını önleyen ana kilit (Kutuyu ekrana sabitler) */
   .services-split {
     width: 100% !important;
     max-width: 100vw !important;
   }
 
-  /* 3. Kartları içine alan kaydırma şeridi (Slider) */
   .services-right {
     display: flex !important;
     flex-wrap: nowrap !important;
-    width: 100% !important; /* Şeridi ekrana kilitleriz ki İÇİNDEKİLER kaysın! */
-    overflow-x: auto !important; /* Sağa sola kaydırmayı uyandırır */
-    overflow-y: visible !important; /* Tıklayınca yazının aşağı açılmasını engellemez */
+    align-items: flex-start !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
     gap: 20px !important;
-    
-    /* Apple/Mobil kaydırma pürüzsüzlüğü ve mıknatıs efekti */
     -webkit-overflow-scrolling: touch !important;
     scroll-snap-type: x mandatory !important;
-    padding-bottom: 30px !important; 
+    padding-bottom: 30px !important;
   }
 
-  /* 4. Kartların ekranda kaplayacağı alan */
-  .minimal-card {
-    flex: 0 0 85% !important; /* Ekranda kartın %85'i görünür, yandakinin ucu kullanıcıyı tahrik eder */
-    scroll-snap-align: center !important; 
+  .services-right .minimal-card {
+    flex: 0 0 85% !important;
+    scroll-snap-align: center !important;
+    min-height: 420px !important;
+    height: auto !important;
+    transform: none !important;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .services-right .minimal-card:hover,
+  .services-right .minimal-card:active,
+  .services-right .minimal-card.expanded,
+  .services-right .minimal-card.expanded:hover,
+  .services-right .minimal-card.expanded:active {
+    transform: none !important;
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15) !important;
   }
 }
