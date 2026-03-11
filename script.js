@@ -147,3 +147,4 @@ modals.forEach(modal => {
     if (e.target === modal) modal.close();
   });
 });
+
